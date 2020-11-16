@@ -1,10 +1,10 @@
 
 public class Personaje {
 	
-	String nombre, sexo , raza, profesion;
-	int edad;
+	String nombre, sexo , raza, profesion, edad;
 
-	public Personaje(String nombre, String sexo, String raza, String profesion, int edad2) {
+
+	public Personaje(String nombre, String sexo, String raza, String profesion, String edad2) {
 		
 		this.nombre = nombre;
 		this.sexo = sexo;
@@ -46,11 +46,11 @@ public class Personaje {
 		this.profesion = profesion;
 	}
 
-	public int getEdad() {
+	public String getEdad() {
 		return edad;
 	}
 
-	public void setEdad(int edad) {
+	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
