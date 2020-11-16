@@ -53,9 +53,10 @@ public class NuevoPersonaje extends JFrame {
 	private static String edad;
 	
 	
-	public static int numberOfMillisecondsInTheFuture = 1000; // Ejecutar cada 1 sec
-	static Date timeToRun = new Date(System.currentTimeMillis() + numberOfMillisecondsInTheFuture);
-	public static Timer timer = new Timer();
+	public  int numberOfMillisecondsInTheFuture = 1000; // Ejecutar cada 1 sec
+	Date timeToRun = new Date(System.currentTimeMillis() + numberOfMillisecondsInTheFuture);
+	public  Timer timer = new Timer();
+	public  Timer timer2 = new Timer();
 
 	/**
 	 * Launch the application.
@@ -85,12 +86,19 @@ public class NuevoPersonaje extends JFrame {
 	 */
 	public NuevoPersonaje() {
 		
-		timer.schedule(new TimerTask() {
-			public void run() {
-				validateCharacter();
-				System.out.println("Hola");
-			}
-			}, timeToRun);
+		
+		try {
+			timer.purge();
+			timer.schedule(new TimerTask() {
+				public void run() {
+					validateCharacter();
+					System.out.println("Hola");
+				}
+				}, timeToRun);
+		}catch(IllegalStateException e) {
+			
+		}
+		
 			
 		
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
@@ -152,7 +160,7 @@ public class NuevoPersonaje extends JFrame {
 				 */
 				
 				timer.cancel();
-				timer.purge();
+				timer2.cancel();
 
 			}
 		});
@@ -188,8 +196,8 @@ public class NuevoPersonaje extends JFrame {
 
 				frame.dispose();
 				Menu.frame.setVisible(true);
-				//timer.cancel();
-				timer.purge();
+				timer.cancel();
+				timer2.cancel();
 			}
 
 			@Override
@@ -640,7 +648,7 @@ public class NuevoPersonaje extends JFrame {
 
 	}
 
-	private static void validateCharacter() {
+	private void validateCharacter() {
 		int steps = 0;
 
 		if (txtnombre.getText() != null && txtnombre.getText() != "" && !txtnombre.getText().equals("")) {
@@ -676,16 +684,26 @@ public class NuevoPersonaje extends JFrame {
 		} else {
 			lblcontinuar.setVisible(false);
 		}
-		// Hay que hacer que una vez le demos al boton pare de comprobar o cerremos la ventana....
-		timer.schedule(new TimerTask() {
-			public void run() {
-				validateCharacter();
-				System.out.println("Hola");
-			}
-			}, 1000);
+		
+		
+		// Controla que cada segundo valida los datos del personaje al crear uno nuevo
+		try {
+			timer2.purge();
+			timer2.schedule(new TimerTask() {
+				public void run() {
+					validateCharacter();
+					System.out.println("Adios");
+				}
+				}, 1000);
+		}catch(IllegalStateException e) {
+			System.out.println("Error en el metodo");
+		}
+		
+		
 	    
 
 	}
+	
 	
 	
 
