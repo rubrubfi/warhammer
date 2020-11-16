@@ -35,7 +35,7 @@ public class NuevoPersonaje extends JFrame {
 	private JTextField txtnombre;
 	private JFormattedTextField txtedad;
 	private static String descripcion;
-	static Contenido test = new Contenido();
+	static Contenido objetoContenido = new Contenido();
 	static String[] profesiones;
 	static JComboBox comboSexo, comboRaza, comboProfesion;
 	static JLabel lbldescripcion, lblraza;
@@ -263,8 +263,8 @@ public class NuevoPersonaje extends JFrame {
 		// ASIGNAMOS POR DEFECTO LA DESCRIPCION Y LA IMAGEN DE LA RAZA DE LOS HUMANOS (
 		// YA QUE VA A SER LA PRIMERA DE LA LISTA )
 
-		test.setRaza(comboRaza.getSelectedItem().toString());
-		descripcion = test.getRaza();
+		objetoContenido.setRaza(comboRaza.getSelectedItem().toString());
+		descripcion = objetoContenido.getRaza();
 		lbldescripcion.setText(descripcion);
 
 		profesiones = Contenido.profesiones(comboRaza.getSelectedItem().toString());
@@ -313,20 +313,20 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				int selection = comboRaza.getSelectedIndex();
+				int indiceRaza = comboRaza.getSelectedIndex();
 
-				int selection2 = comboSexo.getSelectedIndex();
+				int indiceSexo = comboSexo.getSelectedIndex();
 
-				switch (selection) {
+				switch (indiceRaza) {
 				case 0:
 
-					test.setRaza("Humano/a");
+					objetoContenido.setRaza("Humano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
@@ -346,13 +346,13 @@ public class NuevoPersonaje extends JFrame {
 
 				case 1:
 
-					test.setRaza("Elfo/a");
+					objetoContenido.setRaza("Elfo/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img1 = new ImageIcon(".\\images\\elfo-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(420, 520, Image.SCALE_SMOOTH));
@@ -373,13 +373,13 @@ public class NuevoPersonaje extends JFrame {
 
 				case 2:
 
-					test.setRaza("Enano/a");
+					objetoContenido.setRaza("Enano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image imgh = new ImageIcon(".\\images\\enano.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
@@ -399,13 +399,13 @@ public class NuevoPersonaje extends JFrame {
 					break;
 
 				case 3:
-					test.setRaza("Halfling");
+					objetoContenido.setRaza("Halfling");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img3 = new ImageIcon(".\\images\\halflingduo.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
@@ -426,13 +426,13 @@ public class NuevoPersonaje extends JFrame {
 
 				default:
 
-					test.setRaza("Humano/a");
+					objetoContenido.setRaza("Humano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
@@ -459,20 +459,21 @@ public class NuevoPersonaje extends JFrame {
 		comboRaza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 
-				int selection = comboRaza.getSelectedIndex();
+				int indiceRaza = comboRaza.getSelectedIndex();
 
-				int selection2 = comboSexo.getSelectedIndex();
+				int indiceSexo = comboSexo.getSelectedIndex();
 
-				switch (selection) {
+				switch (indiceRaza) {
+
 				case 0:
 
-					test.setRaza("Humano/a");
+					objetoContenido.setRaza("Humano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
@@ -492,13 +493,13 @@ public class NuevoPersonaje extends JFrame {
 
 				case 1:
 
-					test.setRaza("Elfo/a");
+					objetoContenido.setRaza("Elfo/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img1 = new ImageIcon(".\\images\\elfo-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(420, 520, Image.SCALE_SMOOTH));
@@ -519,13 +520,13 @@ public class NuevoPersonaje extends JFrame {
 
 				case 2:
 
-					test.setRaza("Enano/a");
+					objetoContenido.setRaza("Enano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image imgh = new ImageIcon(".\\images\\enano.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
@@ -545,13 +546,13 @@ public class NuevoPersonaje extends JFrame {
 					break;
 
 				case 3:
-					test.setRaza("Halfling");
+					objetoContenido.setRaza("Halfling");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img3 = new ImageIcon(".\\images\\halflingduo.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
@@ -572,13 +573,13 @@ public class NuevoPersonaje extends JFrame {
 
 				default:
 
-					test.setRaza("Humano/a");
+					objetoContenido.setRaza("Humano/a");
 
-					descripcion = test.getRaza();
+					descripcion = objetoContenido.getRaza();
 
 					lbldescripcion.setText(descripcion);
 
-					if (selection2 == 0) {
+					if (indiceSexo == 0) {
 
 						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
@@ -604,7 +605,40 @@ public class NuevoPersonaje extends JFrame {
 
 	}
 
-	public static void cambiafotos() {
+	void cambiarInfo(int raza, int sexo) {
+
+		Contenido c = new Contenido();
+
+		switch (raza) {
+
+		case 0:
+
+			if (sexo == 0) {
+
+			} else {
+
+			}
+
+			break;
+
+		case 1:
+
+			break;
+
+		case 2:
+
+			break;
+
+		case 3:
+
+			break;
+
+		default:
+
+			break;
+
+		}
 
 	}
+
 }
