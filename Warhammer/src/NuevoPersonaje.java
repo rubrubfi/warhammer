@@ -13,8 +13,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -33,20 +36,27 @@ public class NuevoPersonaje extends JFrame {
 
 	private JPanel contentPane;
 	private static NuevoPersonaje frame;
-	private JTextField txtnombre;
-	private JFormattedTextField txtedad;
+	private static JTextField txtnombre;
+	private static JFormattedTextField txtedad;
 	private static String descripcion;
 	static Contenido objetoContenido = new Contenido();
 	static String[] profesiones;
 	static JComboBox comboSexo, comboRaza, comboProfesion;
 	static JLabel lbldescripcion, lblraza;
-	
+	private static JLabel lblcontinuar = new JLabel("");
+
 	// Paco
-	private String nombre;
-	private String sexo;
-	private String raza;
-	private String profesion;
-	private int edad;
+	private static String nombre;
+	private static String sexo;
+	private static String raza;
+	private static String profesion;
+	private static String edad;
+	
+	
+	public  int numberOfMillisecondsInTheFuture = 1000; // Ejecutar cada 1 sec
+	Date timeToRun = new Date(System.currentTimeMillis() + numberOfMillisecondsInTheFuture);
+	public  Timer timer = new Timer();
+	public  Timer timer2 = new Timer();
 
 	/**
 	 * Launch the application.
@@ -61,17 +71,36 @@ public class NuevoPersonaje extends JFrame {
 					frame.setResizable(false);
 					ImageIcon img = new ImageIcon(".\\images\\icono.png");
 					frame.setIconImage(img.getImage());
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		
+
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public NuevoPersonaje() {
+		
+		
+		try {
+			timer.purge();
+			timer.schedule(new TimerTask() {
+				public void run() {
+					validateCharacter();
+					System.out.println("Hola");
+				}
+				}, timeToRun);
+		}catch(IllegalStateException e) {
+			
+		}
+		
+			
+		
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 1024);
@@ -94,9 +123,9 @@ public class NuevoPersonaje extends JFrame {
 		lblrayanegra.setBounds(429, 51, 743, 47);
 		contentPane.add(lblrayanegra);
 
-		JLabel lblcontinuar = new JLabel("");
 		lblcontinuar.setBounds(408, 794, 311, 79);
 		contentPane.add(lblcontinuar);
+		lblcontinuar.setVisible(false);
 
 		Image imgb1 = new ImageIcon(".\\images\\botoncontinuar.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
@@ -123,12 +152,16 @@ public class NuevoPersonaje extends JFrame {
 			// Modificado....
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				/*
+				 * if (validateCharacter()) { Personaje nuevo = new Personaje(nombre, sexo,
+				 * raza, profesion, edad); System.out.println("Todo rellenado");//Borrar esto..
+				 * }
+				 */
 				
-				if (validateCharactaer()) {
-					Personaje nuevo = new Personaje(nombre, sexo, raza, profesion, edad);
-					System.out.println("Todo rellenado");//Borrar esto..
-				}
-				
+				timer.cancel();
+				timer2.cancel();
+
 			}
 		});
 
@@ -163,6 +196,8 @@ public class NuevoPersonaje extends JFrame {
 
 				frame.dispose();
 				Menu.frame.setVisible(true);
+				timer.cancel();
+				timer2.cancel();
 			}
 
 			@Override
@@ -221,6 +256,7 @@ public class NuevoPersonaje extends JFrame {
 					getToolkit().beep();
 					e.consume();
 				}
+
 			}
 		});
 		txtedad.setColumns(10);
@@ -608,62 +644,69 @@ public class NuevoPersonaje extends JFrame {
 			}
 
 		});
+		
 
 	}
-	private boolean validateCharactaer() 
-	{
-		int confirm = 0;
-		boolean p = false;
-		
-		System.out.println(txtnombre.getText());
-		
+
+	private void validateCharacter() {
+		int steps = 0;
+
 		if (txtnombre.getText() != null && txtnombre.getText() != "" && !txtnombre.getText().equals("")) {
 			nombre = txtnombre.getText();
-			confirm += 1;
-		} else {
-			JOptionPane.showMessageDialog(new JFrame(), "El nombre esta vasdfdsfdf", "Dialog",
-			        JOptionPane.ERROR_MESSAGE);
+			steps += 1;
 		}
-		
-		if (comboSexo.getSelectedItem() != null && comboSexo.getSelectedItem() != "" && !comboSexo.getSelectedItem().equals("")) {
+
+		if (comboSexo.getSelectedItem() != null && comboSexo.getSelectedItem() != ""
+				&& !comboSexo.getSelectedItem().equals("")) {
 			sexo = comboSexo.getSelectedItem().toString();
-			confirm += 1;
-		} else {
-			JOptionPane.showMessageDialog(new JFrame(), "El sexo no esta informado", "Dialog",
-			        JOptionPane.ERROR_MESSAGE);
+			steps += 1;
 		}
-		
-		if (comboRaza.getSelectedItem().toString() != null && comboRaza.getSelectedItem().toString() != "" && !comboRaza.getSelectedItem().equals("")) {
+
+		if (comboRaza.getSelectedItem().toString() != null && comboRaza.getSelectedItem().toString() != ""
+				&& !comboRaza.getSelectedItem().equals("")) {
 			raza = comboRaza.getSelectedItem().toString();
-			confirm += 1;
-		} else {
-			JOptionPane.showMessageDialog(new JFrame(), "LA raza falla", "Dialog",
-			        JOptionPane.ERROR_MESSAGE);
+			steps += 1;
 		}
-		
-		if (comboProfesion.getSelectedItem().toString() != null && comboProfesion.getSelectedItem().toString() != "" && !comboProfesion.getSelectedItem().equals("") ) {
+
+		if (comboProfesion.getSelectedItem().toString() != null && comboProfesion.getSelectedItem().toString() != ""
+				&& !comboProfesion.getSelectedItem().equals("")) {
 			profesion = comboProfesion.getSelectedItem().toString();
-			confirm += 1;
-		} else {
-			JOptionPane.showMessageDialog(new JFrame(), "La profesion no esta informada", "Dialog",
-			        JOptionPane.ERROR_MESSAGE);
+			steps += 1;
 		}
-		
+
 		if (txtedad.getText() != null && txtedad.getText() != "" && !txtedad.getText().equals("")) {
-			edad = Integer.parseInt(txtedad.getText());
-			confirm += 1;
+			edad = txtedad.getText();
+			steps += 1;
+		}
+
+		if (steps == 5) {
+			lblcontinuar.setVisible(true);
 		} else {
-			JOptionPane.showMessageDialog(new JFrame(), "La edad no esta informada", "Dialog",
-			        JOptionPane.ERROR_MESSAGE);
+			lblcontinuar.setVisible(false);
 		}
 		
-		if (confirm == 5)
-		{
-			p = true;
+		
+		// Controla que cada segundo valida los datos del personaje al crear uno nuevo
+		try {
+			timer2.purge();
+			timer2.schedule(new TimerTask() {
+				public void run() {
+					validateCharacter();
+					System.out.println("Adios");
+				}
+				}, 1000);
+		}catch(IllegalStateException e) {
+			System.out.println("Error en el metodo");
 		}
 		
-		return p;
+		
+	    
+
 	}
+	
+	
+	
+
 	
 	
 
