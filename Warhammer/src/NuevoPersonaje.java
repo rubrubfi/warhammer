@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,6 +40,13 @@ public class NuevoPersonaje extends JFrame {
 	static String[] profesiones;
 	static JComboBox comboSexo, comboRaza, comboProfesion;
 	static JLabel lbldescripcion, lblraza;
+	
+	// Paco
+	private String nombre;
+	private String sexo;
+	private String raza;
+	private String profesion;
+	private int edad;
 
 	/**
 	 * Launch the application.
@@ -112,17 +120,15 @@ public class NuevoPersonaje extends JFrame {
 				lblcontinuar.setIcon(imgfondo1);
 			}
 
+			// Modificado....
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				Personaje nuevo = new Personaje();
-
-				nuevo.setNombre(txtnombre.getText());
-				nuevo.setSexo(comboSexo.getSelectedItem().toString());
-				nuevo.setRaza(comboRaza.getSelectedItem().toString());
-				nuevo.setProfesion(comboProfesion.getSelectedItem().toString());
-				nuevo.setEdad(txtedad.getText());
-
+				
+				if (validateCharactaer()) {
+					Personaje nuevo = new Personaje(nombre, sexo, raza, profesion, edad);
+					System.out.println("Todo rellenado");//Borrar esto..
+				}
+				
 			}
 		});
 
@@ -156,7 +162,7 @@ public class NuevoPersonaje extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				frame.dispose();
-
+				Menu.frame.setVisible(true);
 			}
 
 			@Override
@@ -604,41 +610,61 @@ public class NuevoPersonaje extends JFrame {
 		});
 
 	}
-
-	void cambiarInfo(int raza, int sexo) {
-
-		Contenido c = new Contenido();
-
-		switch (raza) {
-
-		case 0:
-
-			if (sexo == 0) {
-
-			} else {
-
-			}
-
-			break;
-
-		case 1:
-
-			break;
-
-		case 2:
-
-			break;
-
-		case 3:
-
-			break;
-
-		default:
-
-			break;
-
+	private boolean validateCharactaer() 
+	{
+		int confirm = 0;
+		boolean p = false;
+		
+		System.out.println(txtnombre.getText());
+		
+		if (txtnombre.getText() != null && txtnombre.getText() != "" && !txtnombre.getText().equals("")) {
+			nombre = txtnombre.getText();
+			confirm += 1;
+		} else {
+			JOptionPane.showMessageDialog(new JFrame(), "El nombre esta vasdfdsfdf", "Dialog",
+			        JOptionPane.ERROR_MESSAGE);
 		}
-
+		
+		if (comboSexo.getSelectedItem() != null && comboSexo.getSelectedItem() != "" && !comboSexo.getSelectedItem().equals("")) {
+			sexo = comboSexo.getSelectedItem().toString();
+			confirm += 1;
+		} else {
+			JOptionPane.showMessageDialog(new JFrame(), "El sexo no esta informado", "Dialog",
+			        JOptionPane.ERROR_MESSAGE);
+		}
+		
+		if (comboRaza.getSelectedItem().toString() != null && comboRaza.getSelectedItem().toString() != "" && !comboRaza.getSelectedItem().equals("")) {
+			raza = comboRaza.getSelectedItem().toString();
+			confirm += 1;
+		} else {
+			JOptionPane.showMessageDialog(new JFrame(), "LA raza falla", "Dialog",
+			        JOptionPane.ERROR_MESSAGE);
+		}
+		
+		if (comboProfesion.getSelectedItem().toString() != null && comboProfesion.getSelectedItem().toString() != "" && !comboProfesion.getSelectedItem().equals("") ) {
+			profesion = comboProfesion.getSelectedItem().toString();
+			confirm += 1;
+		} else {
+			JOptionPane.showMessageDialog(new JFrame(), "La profesion no esta informada", "Dialog",
+			        JOptionPane.ERROR_MESSAGE);
+		}
+		
+		if (txtedad.getText() != null && txtedad.getText() != "" && !txtedad.getText().equals("")) {
+			edad = Integer.parseInt(txtedad.getText());
+			confirm += 1;
+		} else {
+			JOptionPane.showMessageDialog(new JFrame(), "La edad no esta informada", "Dialog",
+			        JOptionPane.ERROR_MESSAGE);
+		}
+		
+		if (confirm == 5)
+		{
+			p = true;
+		}
+		
+		return p;
 	}
+	
+	
 
 }

@@ -1,25 +1,18 @@
 
 public class Personaje {
 	
-	String nombre, sexo , raza, profesion , edad;
+	String nombre, sexo , raza, profesion;
+	int edad;
 
-	public Personaje(String nombre, String sexo, String raza, String profesion, String edad) {
+	public Personaje(String nombre, String sexo, String raza, String profesion, int edad2) {
 		
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.raza = raza;
 		this.profesion = profesion;
-		this.edad = edad;
-	}
+		this.edad = edad2;
+	}	
 	
-	public Personaje() {
-		
-		this.nombre = "";
-		this.sexo = "";
-		this.raza = "";
-		this.profesion = "";
-		this.edad = "";
-	}
 
 	public String getNombre() {
 		return nombre;
