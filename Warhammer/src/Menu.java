@@ -263,6 +263,7 @@ public class Menu extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				NuevoPersonaje.start();
+				frame.setVisible(false);
 
 			}
 		});
