@@ -86,11 +86,11 @@ public class Menu extends JFrame {
 		// IMAGEN DE TITULO
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(615, 75, 643, 196);
+		lblNewLabel.setBounds(685, 191, 516, 150);
 		contentPane.add(lblNewLabel);
 
 		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
-		ImageIcon img2 = new ImageIcon(img.getScaledInstance(630, 190, Image.SCALE_SMOOTH));
+		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon(img2);
 
 		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
@@ -100,18 +100,18 @@ public class Menu extends JFrame {
 
 		JLabel btn1 = new JLabel("");
 		btn1.setHorizontalAlignment(SwingConstants.CENTER);
-		btn1.setBounds(760, 495, 332, 64);
+		btn1.setBounds(769, 498, 332, 64);
 		contentPane.add(btn1);
 
 		JLabel btn2 = new JLabel("");
 		btn2.setHorizontalAlignment(SwingConstants.CENTER);
-		btn2.setBounds(760, 605, 332, 64);
+		btn2.setBounds(769, 608, 332, 64);
 		contentPane.add(btn2);
 
 		JLabel btn3 = new JLabel("");
 		btn3.setForeground(Color.BLACK);
 		btn3.setHorizontalAlignment(SwingConstants.CENTER);
-		btn3.setBounds(760, 384, 332, 64);
+		btn3.setBounds(769, 387, 332, 64);
 		contentPane.add(btn3);
 
 		// ASIGNAMOS IMAGEN A LOS BOTONES
@@ -177,10 +177,10 @@ public class Menu extends JFrame {
 		lblsalir.setIcon(imgtest2);
 
 		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
-		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(440, 613, Image.SCALE_SMOOTH));
+		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
 
 		JLabel lblperga = new JLabel("");
-		lblperga.setBounds(707, 128, 516, 813);
+		lblperga.setBounds(720, 63, 428, 806);
 		contentPane.add(lblperga);
 		lblperga.setIcon(imgperga1);
 
