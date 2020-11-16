@@ -4,13 +4,13 @@ public class Personaje {
 	String nombre, sexo , raza, profesion;
 	int edad;
 
-	public Personaje(String nombre, String sexo, String raza, String profesion, int edad2) {
+	public Personaje(String nombre, String sexo, String raza, String profesion, int edad) {
 		
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.raza = raza;
 		this.profesion = profesion;
-		this.edad = edad2;
+		this.edad = edad;
 	}	
 	
 
@@ -46,11 +46,11 @@ public class Personaje {
 		this.profesion = profesion;
 	}
 
-	public String getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 
