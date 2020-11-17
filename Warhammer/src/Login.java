@@ -39,6 +39,8 @@ public class Login extends JFrame {
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
+					ImageIcon img = new ImageIcon(".\\images\\icono.png");
+					frame.setIconImage(img.getImage());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

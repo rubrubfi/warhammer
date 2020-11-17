@@ -29,19 +29,19 @@ public class Contenido {
 		String enanos, elfos, humanos, halfling;
 
 		enanos = "<html>Los enanos son una raza de guerreros y artesanos de corta estatura pero corpulentos y resistentes."
-				+ " La mayoría viven bajo las montás en poderosas fortalezas, con minos que excavan hasta lo más profundo de la tierra. "
+				+ " La mayoría viven bajo las montañas en poderosas fortalezas, con minas que excavan hasta lo más profundo de la tierra. "
 				+ "Se les reconoce fácilmente por sus cuerpos robustos, largos cabellos y espesas barbas. "
-				+ "Suelen ser gruñones e irritables, y su capacidad de guardar rencar es legendaria. "
+				+ "Suelen ser gruñones e irritables, y su capacidad de guardar rencor es legendaria. "
 				+ "No obstante, los enanos son un pueblo valiente e inquebrantablemente leal a sus amigos y aliados."
 				+ " Luchan por proteger los vestigios de sus reinos montañeses de orcos, goblins y demás criaturas inmundas. "
 				+ "Los enanos mantienen fuertes vinculos con los humanos del Imperio y muchos forman parte de la sociedad imperial.</html>";
 		
 		
-		elfos = "<html>Los elfos son una raza ágil y grácil, fácilmente reconocibles por sus puntiaguadas orejas y sus rasgos afilados. "
+		elfos = "<html>Los elfos son una raza ágil y grácil, fácilmente reconocibles por sus puntiagudas orejas y sus rasgos afilados. "
 				+ "Tienen una historia gloriosa aunque trágica, y son famosos por su arquería, sus conocimientos y su magia. "
 				+ "Los elfos poseen un entendimiento innato de las vías y corrientes de la naturaleza, en especial de los bosques y mares. "
 				+ "Desprecian a aquellos que destruyen la pureza de la naturaleza, ya sean orgullosos humanos, avariciosos enanos o malvados orcos."
-				+ "Aunque pueden parecer distantes, se han sacrificado más por el bien del mundo de los que cualquier otra raza pueda creer.</html>";
+				+ "Aunque pueden parecer distantes, se han sacrificado más por el bien del mundo de lo que cualquier otra raza pueda creer.</html>";
 		
 		
 		humanos = "<html>Los humanos son la raza más habitual del Viejo Mundo, y los fundadores del Imperio. "
