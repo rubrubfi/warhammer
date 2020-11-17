@@ -200,7 +200,7 @@ public class NuevoPersonaje extends JFrame {
 		contentPane.add(lblRaza);
 		
 		JLabel lblvolver = new JLabel("");
-		lblvolver.setBounds(308, 794, 74, 76);
+		lblvolver.setBounds(290, 790, 121, 80);
 		contentPane.add(lblvolver);
 
 		JLabel lbldescripcion = new JLabel("");
@@ -237,8 +237,8 @@ public class NuevoPersonaje extends JFrame {
 		
 		// ASIGNAMOS A CADA JLABEL , SU IMAGEN CORRESPONDIENTE
 
-		Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
-		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+		Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 		lblvolver.setIcon(imgv);		
 
 		Image prueba = new ImageIcon(".\\images\\titulo.png").getImage();
@@ -349,8 +349,8 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\volverencima.png").getImage();
-				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+				Image imgvolver = new ImageIcon(".\\images\\botonvolverpruebaencima.png").getImage();
+				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 
 				Reproductor.sonido("sonidoboton.mp3");
@@ -368,8 +368,8 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
-				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+				Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 			}
 		});

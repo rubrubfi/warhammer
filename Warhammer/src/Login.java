@@ -93,6 +93,7 @@ public class Login extends JFrame {
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setBounds(820, 498, 220, 28);
 		contentPane.add(passwordField);
+		
 
 		// CREAMOS LABELS DE TITULO, FONDO, BOTONES
 
@@ -102,22 +103,22 @@ public class Login extends JFrame {
 
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
-		lblUsuario.setFont(new Font("Felix Titling", Font.BOLD, 20));
+		lblUsuario.setFont(new Font("Felix Titling", Font.BOLD, 18));
 		lblUsuario.setBounds(820, 370, 187, 28);
 		contentPane.add(lblUsuario);
 
 		JLabel lblpass = new JLabel("CONTRASE\u00D1A");
 		lblpass.setHorizontalAlignment(SwingConstants.LEFT);
-		lblpass.setFont(new Font("Felix Titling", Font.BOLD, 20));
+		lblpass.setFont(new Font("Felix Titling", Font.BOLD, 18));
 		lblpass.setBounds(820, 460, 187, 28);
 		contentPane.add(lblpass);
 
 		JLabel lblaceptar = new JLabel("");
-		lblaceptar.setBounds(795, 549, 270, 70);
+		lblaceptar.setBounds(812, 550, 244, 55);
 		contentPane.add(lblaceptar);
 
 		JLabel lblregistro = new JLabel("");
-		lblregistro.setBounds(795, 621, 270, 70);
+		lblregistro.setBounds(812, 617, 244, 55);
 		contentPane.add(lblregistro);
 
 		JLabel lblsalir = new JLabel("");
@@ -148,12 +149,13 @@ public class Login extends JFrame {
 		lblperga.setIcon(imgperga1);
 
 		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
-		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
+		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 		lblaceptar.setIcon(imgaceptar2);
 
 		Image imgregistro = new ImageIcon(".\\images\\botonregistro.png").getImage();
-		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
-		lblregistro.setIcon(imgregistro2);
+		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(240, 70,  Image.SCALE_SMOOTH));
+		lblregistro.setIcon(imgregistro2);	
+	
 
 		Image imgtest = new ImageIcon(".\\images\\boton-salir.png").getImage();
 		ImageIcon imgtest2 = new ImageIcon(imgtest.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
@@ -170,7 +172,7 @@ public class Login extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 				Reproductor.sonido(sonidoboton);
 
@@ -180,7 +182,7 @@ public class Login extends JFrame {
 			public void mouseExited(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 			}
 			@Override
@@ -199,7 +201,7 @@ public class Login extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonregistroencima.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 				Reproductor.sonido(sonidoboton);
 
@@ -209,7 +211,7 @@ public class Login extends JFrame {
 			public void mouseExited(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonregistro.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 			}
 
@@ -227,21 +229,9 @@ public class Login extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				int seleccion = JOptionPane.showOptionDialog(null, "¿Quieres salir del programa?",
-						"Warhammer - Salir del juego", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-						new Object[] { "Si", "Cancelar" }, "opcion 1");
+				
 
-				switch (seleccion) {
-
-				case 0:
-					System.exit(0);
-					break;
-
-				case 1:
-
-					break;
-
-				}
+				
 
 			}
 
@@ -277,6 +267,5 @@ public class Login extends JFrame {
 		{
 			Reproductor.sonido(musicabase);
 		}
-	};
-
+	}
 }

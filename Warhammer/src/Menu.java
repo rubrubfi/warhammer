@@ -68,7 +68,6 @@ public class Menu extends JFrame {
 	public Menu() {
 
 		sonidoboton = "sonidoboton.mp3";
-		musicabase = "musicabase.mp3";
 
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,74 +86,8 @@ public class Menu extends JFrame {
 
 		JLabel btn1 = new JLabel("");
 		btn1.setHorizontalAlignment(SwingConstants.CENTER);
-		btn1.setBounds(769, 368, 332, 64);
+		btn1.setBounds(769, 388, 332, 64);
 		contentPane.add(btn1);
-
-		JLabel btn2 = new JLabel("");
-		btn2.setHorizontalAlignment(SwingConstants.CENTER);
-		btn2.setBounds(769, 460, 332, 64);
-		contentPane.add(btn2);
-
-		JLabel btn3 = new JLabel("");
-		btn3.setHorizontalAlignment(SwingConstants.CENTER);
-		btn3.setBounds(769, 554, 332, 64);
-		contentPane.add(btn3);
-
-		JLabel btn4 = new JLabel("");
-		btn4.setHorizontalAlignment(SwingConstants.CENTER);
-		btn4.setBounds(769, 651, 332, 64);
-		contentPane.add(btn4);
-
-		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
-		label.setForeground(SystemColor.windowBorder);
-		label.setBounds(456, 951, 466, 28);
-		contentPane.add(label);
-
-		JLabel lblperga = new JLabel("");
-		lblperga.setBounds(720, 63, 428, 806);
-		contentPane.add(lblperga);
-
-		JLabel lblsalir = new JLabel("");
-		lblsalir.setBounds(1125, 872, 76, 64);
-		contentPane.add(lblsalir);
-
-		JLabel lblfondo = new JLabel("");
-		lblfondo.setBounds(0, 0, 1270, 991);
-		contentPane.add(lblfondo);
-
-		// ASIGNAMOS IMAGEN A LOS JLABEL
-
-		Image imgb1 = new ImageIcon(".\\images\\boton1.png").getImage();
-		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-		btn1.setIcon(imgb11);
-
-		Image imgb2 = new ImageIcon(".\\images\\boton2.png").getImage();
-		ImageIcon imgb22 = new ImageIcon(imgb2.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-		btn2.setIcon(imgb22);
-
-		Image imgb3 = new ImageIcon(".\\images\\boton3.png").getImage();
-		ImageIcon imgb33 = new ImageIcon(imgb3.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-		btn3.setIcon(imgb33);
-
-		Image imgb4 = new ImageIcon(".\\images\\boton4.png").getImage();
-		ImageIcon imgb44 = new ImageIcon(imgb4.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-		btn4.setIcon(imgb44);
-
-		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
-		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
-		lblperga.setIcon(imgperga1);
-
-		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
-		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
-		lbltitulo.setIcon(img2);
-
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
-		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
-		lblfondo.setIcon(imgfondo1);
-
-		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
-		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		lblsalir.setIcon(imgsaliendo);
 
 		// ----------------------------------------------------
 
@@ -185,6 +118,72 @@ public class Menu extends JFrame {
 
 			}
 		});
+
+		JLabel btn2 = new JLabel("");
+		btn2.setHorizontalAlignment(SwingConstants.CENTER);
+		btn2.setBounds(769, 470, 332, 64);
+		contentPane.add(btn2);
+
+		JLabel btn3 = new JLabel("");
+		btn3.setHorizontalAlignment(SwingConstants.CENTER);
+		btn3.setBounds(769, 552, 332, 64);
+		contentPane.add(btn3);
+
+		JLabel btn4 = new JLabel("");
+		btn4.setHorizontalAlignment(SwingConstants.CENTER);
+		btn4.setBounds(769, 634, 332, 64);
+		contentPane.add(btn4);
+
+		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
+		label.setForeground(SystemColor.windowBorder);
+		label.setBounds(456, 951, 466, 28);
+		contentPane.add(label);
+
+		JLabel lblperga = new JLabel("");
+		lblperga.setBounds(720, 63, 428, 806);
+		contentPane.add(lblperga);
+
+		JLabel lblsalir = new JLabel("");
+		lblsalir.setBounds(1125, 872, 76, 64);
+		contentPane.add(lblsalir);
+
+		JLabel lblfondo = new JLabel("");
+		lblfondo.setBounds(0, 0, 1270, 991);
+		contentPane.add(lblfondo);
+
+		// ASIGNAMOS IMAGEN A LOS JLABEL
+
+		Image imgb1 = new ImageIcon(".\\images\\boton1.png").getImage();
+		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+		btn1.setIcon(imgb11);
+		
+		Image imgb2 = new ImageIcon(".\\images\\boton2.png").getImage();
+		ImageIcon imgb22 = new ImageIcon(imgb2.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+		btn2.setIcon(imgb22);
+
+		Image imgb3 = new ImageIcon(".\\images\\boton3.png").getImage();
+		ImageIcon imgb33 = new ImageIcon(imgb3.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+		btn3.setIcon(imgb33);
+
+		Image imgb4 = new ImageIcon(".\\images\\boton4.png").getImage();
+		ImageIcon imgb44 = new ImageIcon(imgb4.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+		btn4.setIcon(imgb44);
+
+		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
+		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
+		lblperga.setIcon(imgperga1);
+
+		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
+		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
+		lbltitulo.setIcon(img2);
+
+		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
+		lblfondo.setIcon(imgfondo1);
+
+		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
+		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		lblsalir.setIcon(imgsaliendo);
 
 		btn2.addMouseListener(new MouseAdapter() {
 
@@ -301,18 +300,6 @@ public class Menu extends JFrame {
 			}
 		});
 
-		Thread t = new Thread(new MiHilo());
-		t.start();
-
 	}
-
-	public class MiHilo extends Thread {
-
-		public void run()
-
-		{
-			Reproductor.sonido(musicabase);
-		}
-	};
 
 }
