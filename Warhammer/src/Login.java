@@ -125,35 +125,35 @@ public class Login extends JFrame {
 		textField = new JTextField();
 		textField.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setBounds(818, 417, 220, 28);
+		textField.setBounds(820, 408, 220, 28);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setBounds(818, 507, 220, 28);
+		passwordField.setBounds(820, 498, 220, 28);
 		contentPane.add(passwordField);
 
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUsuario.setFont(new Font("Felix Titling", Font.BOLD, 20));
-		lblUsuario.setBounds(818, 379, 187, 28);
+		lblUsuario.setBounds(820, 370, 187, 28);
 		contentPane.add(lblUsuario);
 
 		JLabel lblpass = new JLabel("CONTRASE\u00D1A");
 		lblpass.setHorizontalAlignment(SwingConstants.LEFT);
 		lblpass.setFont(new Font("Felix Titling", Font.BOLD, 20));
-		lblpass.setBounds(818, 469, 187, 28);
+		lblpass.setBounds(820, 460, 187, 28);
 		contentPane.add(lblpass);
 
 		// DEFINIMOS UN JLABEL SIMULANDO BOTÓN PARA CONTINUAR
 		
 		JLabel lblaceptar = new JLabel("");
-		lblaceptar.setBounds(809, 553, 241, 64);
+		lblaceptar.setBounds(795, 549, 270, 70);
 		contentPane.add(lblaceptar);
 		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
-		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 		lblaceptar.setIcon(imgaceptar2);
 		// ASIGNAMOS LISTENERS AL BOTON, PARA QUE CAMBIE LA IMAGEN O ABRA UNA NUEVA
 		// VENTANA
@@ -162,7 +162,7 @@ public class Login extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 				sonido(sonidoboton);
 
@@ -172,7 +172,7 @@ public class Login extends JFrame {
 			public void mouseExited(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 			}
 		});
@@ -180,10 +180,10 @@ public class Login extends JFrame {
 		// DEFINIMOS UN JLABEL SIMULANDO BOTÓN PARA REGISTRO
 
 		JLabel lblregistro = new JLabel("");		
-		lblregistro.setBounds(809, 625, 241, 64);
+		lblregistro.setBounds(795, 621, 270, 70);
 		contentPane.add(lblregistro);
 		Image imgregistro = new ImageIcon(".\\images\\botonregistro.png").getImage();
-		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 		lblregistro.setIcon(imgregistro2);		
 		
 		lblregistro.addMouseListener(new MouseAdapter() {
@@ -191,7 +191,7 @@ public class Login extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonregistroencima.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 				sonido(sonidoboton);
 
@@ -201,7 +201,7 @@ public class Login extends JFrame {
 			public void mouseExited(MouseEvent e) {
 
 				Image imgaceptar = new ImageIcon(".\\images\\botonregistro.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(230, 60, Image.SCALE_SMOOTH));
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 			}
 		});

@@ -78,57 +78,188 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// ASIGNAMOS UNA IMAGEN DE FONDO
+		// DEFINIMOS JLABEL
 
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
-		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
-
-		// IMAGEN DE TITULO
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(685, 191, 516, 150);
-		contentPane.add(lblNewLabel);
-
-		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
-		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
-		lblNewLabel.setIcon(img2);
-
-		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
-		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-
-		// DEFINIMOS BOTONES
-
-		JLabel btn1 = new JLabel("");
+		JLabel lbltitulo = new JLabel("");
+		lbltitulo.setBounds(685, 191, 516, 150);
+		contentPane.add(lbltitulo);
+		
+		JLabel btn1 = new JLabel("");		
 		btn1.setHorizontalAlignment(SwingConstants.CENTER);
-		btn1.setBounds(769, 498, 332, 64);
+		btn1.setBounds(769, 368, 332, 64);
 		contentPane.add(btn1);
-
+		
 		JLabel btn2 = new JLabel("");
 		btn2.setHorizontalAlignment(SwingConstants.CENTER);
-		btn2.setBounds(769, 608, 332, 64);
+		btn2.setBounds(769, 460, 332, 64);
 		contentPane.add(btn2);
 
 		JLabel btn3 = new JLabel("");
-		btn3.setForeground(Color.BLACK);
 		btn3.setHorizontalAlignment(SwingConstants.CENTER);
-		btn3.setBounds(769, 387, 332, 64);
+		btn3.setBounds(769, 554, 332, 64);
 		contentPane.add(btn3);
 
-		// ASIGNAMOS IMAGEN A LOS BOTONES
+		JLabel btn4 = new JLabel("");		
+		btn4.setHorizontalAlignment(SwingConstants.CENTER);
+		btn4.setBounds(769, 651, 332, 64);
+		contentPane.add(btn4);
+		
+		JLabel lblperga = new JLabel("");
+		lblperga.setBounds(720, 63, 428, 806);
+		contentPane.add(lblperga);
+		
+		JLabel lblsalir = new JLabel("");		
+		lblsalir.setBounds(1125, 872, 76, 64);
+		contentPane.add(lblsalir);	
+
+		JLabel lblfondo = new JLabel("");
+		lblfondo.setBounds(0, 0, 1270, 991);
+		contentPane.add(lblfondo);
+		
+		
+		// ASIGNAMOS IMAGEN A LOS JLABEL
 
 		Image imgb1 = new ImageIcon(".\\images\\boton1.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn1.setIcon(imgb11);
-
+		
 		Image imgb2 = new ImageIcon(".\\images\\boton2.png").getImage();
 		ImageIcon imgb22 = new ImageIcon(imgb2.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn2.setIcon(imgb22);
 
 		Image imgb3 = new ImageIcon(".\\images\\boton3.png").getImage();
 		ImageIcon imgb33 = new ImageIcon(imgb3.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-		btn3.setIcon(imgb33);
+		btn3.setIcon(imgb33);		
+		
+		Image imgb4 = new ImageIcon(".\\images\\boton4.png").getImage();
+		ImageIcon imgb44 = new ImageIcon(imgb4.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+		btn4.setIcon(imgb44);			
 
-		JLabel lblsalir = new JLabel("");
+		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
+		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
+		lblperga.setIcon(imgperga1);		
+
+		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
+		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
+		lbltitulo.setIcon(img2);		
+
+		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
+		lblfondo.setIcon(imgfondo1);
+		
+		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
+		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		lblsalir.setIcon(imgsaliendo);
+		
+		
+		//----------------------------------------------------
+
+		// COMPORTAMIENTO AL CLICK EN LOS BOTONES
+
+		btn1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				Image imgclick = new ImageIcon(".\\images\\boton1encima.png").getImage();
+				ImageIcon imgb33 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn1.setIcon(imgb33);
+				sonido(sonidoboton);
+
+			}
+
+			public void mouseExited(MouseEvent e) {
+				Image imgnormal = new ImageIcon(".\\images\\boton1.png").getImage();
+				ImageIcon imgb34 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn1.setIcon(imgb34);
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				NuevoPersonaje.start();
+				frame.setVisible(false);
+
+			}
+		});
+
+		
+		
+		btn2.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				Image imgclick = new ImageIcon(".\\images\\boton2encima.png").getImage();
+				ImageIcon imgb11 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn2.setIcon(imgb11);
+				sonido(sonidoboton);
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+
+				Image imgnormal = new ImageIcon(".\\images\\boton2.png").getImage();
+				ImageIcon imgb12 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn2.setIcon(imgb12);
+
+			}
+		});
+
+		btn3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				Image imgclick = new ImageIcon(".\\images\\boton3encima.png").getImage();
+				ImageIcon imgb21 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn3.setIcon(imgb21);
+				sonido(sonidoboton);
+
+			}
+
+			public void mouseExited(MouseEvent e) {
+				Image imgnormal = new ImageIcon(".\\images\\boton3.png").getImage();
+				ImageIcon imgb22 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn3.setIcon(imgb22);
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				try {
+					PDFViewer.leer();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		btn4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				Image imgclick = new ImageIcon(".\\images\\boton4encima.png").getImage();
+				ImageIcon imgb21 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn4.setIcon(imgb21);
+				sonido(sonidoboton);
+
+			}
+
+			public void mouseExited(MouseEvent e) {
+				Image imgnormal = new ImageIcon(".\\images\\boton4.png").getImage();
+				ImageIcon imgb22 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+				btn4.setIcon(imgb22);
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				
+			}
+		});
+		
+		
 		lblsalir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -169,104 +300,7 @@ public class Menu extends JFrame {
 
 			}
 		});
-		lblsalir.setBounds(1125, 872, 76, 64);
-		contentPane.add(lblsalir);
 
-		Image imgtest = new ImageIcon(".\\images\\boton-salir.png").getImage();
-		ImageIcon imgtest2 = new ImageIcon(imgtest.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		lblsalir.setIcon(imgtest2);
-
-		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
-		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
-
-		JLabel lblperga = new JLabel("");
-		lblperga.setBounds(720, 63, 428, 806);
-		contentPane.add(lblperga);
-		lblperga.setIcon(imgperga1);
-
-		JLabel lblfondo = new JLabel("");
-		lblfondo.setBounds(0, 0, 1270, 991);
-		contentPane.add(lblfondo);
-		lblfondo.setIcon(imgfondo1);
-
-		// COMPORTAMIENTO AL CLICK
-
-		btn1.addMouseListener(new MouseAdapter() {
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgclick = new ImageIcon(".\\images\\boton1encima.png").getImage();
-				ImageIcon imgb11 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn1.setIcon(imgb11);
-				sonido(sonidoboton);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-
-				Image imgnormal = new ImageIcon(".\\images\\boton1.png").getImage();
-				ImageIcon imgb12 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn1.setIcon(imgb12);
-
-			}
-		});
-
-		btn2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgclick = new ImageIcon(".\\images\\boton2encima.png").getImage();
-				ImageIcon imgb21 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn2.setIcon(imgb21);
-				sonido(sonidoboton);
-
-			}
-
-			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\boton2.png").getImage();
-				ImageIcon imgb22 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn2.setIcon(imgb22);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				try {
-					PDFViewer.leer();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		btn3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgclick = new ImageIcon(".\\images\\boton3encima.png").getImage();
-				ImageIcon imgb33 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn3.setIcon(imgb33);
-				sonido(sonidoboton);
-
-			}
-
-			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\boton3.png").getImage();
-				ImageIcon imgb34 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn3.setIcon(imgb34);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				NuevoPersonaje.start();
-				frame.setVisible(false);
-
-			}
-		});
 
 		Thread t = new Thread(new MiHilo());
 		t.start();
