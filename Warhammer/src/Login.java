@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 public class Login extends JFrame {
 
@@ -36,6 +38,17 @@ public class Login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					try {
+						for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+							if ("Nimbus".equals(info.getName())) {
+								UIManager.setLookAndFeel(info.getClassName());
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					
 					frame = new Login();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
@@ -111,47 +124,6 @@ public class Login extends JFrame {
 		lblsalir.setBounds(1125, 872, 76, 64);
 		contentPane.add(lblsalir);
 
-		lblsalir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				int seleccion = JOptionPane.showOptionDialog(null, "¿Quieres salir del programa?",
-						"Warhammer - Salir del juego", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-						new Object[] { "Si", "Cancelar" }, "opcion 1");
-
-				switch (seleccion) {
-
-				case 0:
-					System.exit(0);
-					break;
-
-				case 1:
-
-					break;
-
-				}
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir-encima.png").getImage();
-				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgb11);
-				sonido(sonidoboton);
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
-				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgb11);
-
-			}
-		});
-
 		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
 		label.setForeground(SystemColor.windowBorder);
 		label.setBounds(456, 951, 466, 28);
@@ -200,7 +172,7 @@ public class Login extends JFrame {
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
-				sonido(sonidoboton);
+				Reproductor.sonido(sonidoboton);
 
 			}
 
@@ -211,6 +183,15 @@ public class Login extends JFrame {
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				// COMPROBACIÓN DE LOGIN 
+				
+				Menu.home();
+				frame.setVisible(false);
+				
+			}
 		});
 
 		lblregistro.addMouseListener(new MouseAdapter() {
@@ -220,7 +201,7 @@ public class Login extends JFrame {
 				Image imgaceptar = new ImageIcon(".\\images\\botonregistroencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
-				sonido(sonidoboton);
+				Reproductor.sonido(sonidoboton);
 
 			}
 
@@ -240,6 +221,49 @@ public class Login extends JFrame {
 				Registro.registrar();
 			}
 		});
+		
+
+		lblsalir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				int seleccion = JOptionPane.showOptionDialog(null, "¿Quieres salir del programa?",
+						"Warhammer - Salir del juego", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+						new Object[] { "Si", "Cancelar" }, "opcion 1");
+
+				switch (seleccion) {
+
+				case 0:
+					System.exit(0);
+					break;
+
+				case 1:
+
+					break;
+
+				}
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+				Image imgsalir = new ImageIcon(".\\images\\boton-salir-encima.png").getImage();
+				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+				lblsalir.setIcon(imgb11);
+				Reproductor.sonido(sonidoboton);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+
+				Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
+				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+				lblsalir.setIcon(imgb11);
+
+			}
+		});
+
 
 		Thread t = new Thread(new MiHilo());
 		t.start();
@@ -251,24 +275,8 @@ public class Login extends JFrame {
 		public void run()
 
 		{
-			sonido(musicabase);
+			Reproductor.sonido(musicabase);
 		}
 	};
 
-	public static void sonido(String archivo) {
-
-		try {
-
-			Reproductor musicobject = new Reproductor();
-			musicobject.reproduce(archivo);
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JavaLayerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 }

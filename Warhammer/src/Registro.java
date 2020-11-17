@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.SystemColor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
@@ -11,10 +13,13 @@ import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.EmptyBorder;
 
 import javazoom.jl.decoder.JavaLayerException;
@@ -36,6 +41,16 @@ public class Registro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					try {
+						for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+							if ("Nimbus".equals(info.getName())) {
+								UIManager.setLookAndFeel(info.getClassName());
+								break;
+							}
+						}
+					} catch (Exception e) {
+					}
+					
 					frame = new Registro();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
@@ -138,8 +153,7 @@ public class Registro extends JFrame {
 		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
 		label.setForeground(SystemColor.windowBorder);
 		label.setBounds(456, 951, 466, 28);
-		contentPane.add(label);
-		
+		contentPane.add(label);		
 		
 		
 		JLabel lblperga = new JLabel("");
@@ -177,7 +191,48 @@ public class Registro extends JFrame {
 		lblfondo.setIcon(imgfondo1);
 		
 		
-		// DEFINIMOS ACTION LISTENER A LOS BOTONES
+		// DEFINIMOS ACTION LISTENER A LOS BOTONES Y CAMPOS RELLENABLES
+		
+		txtUsuario.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtUsuario.getText().length() >= 20) 
+					e.consume();
+
+			}
+		});
+		
+		txtCorreo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtCorreo.getText().length() >= 20) 
+					e.consume();
+
+			}
+		});
+		
+		txtpass.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtpass.getText().length() >= 12) 
+					e.consume();
+
+			}
+		});
+		
+		txtpass2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtpass2.getText().length() >= 12) 
+					e.consume();
+
+			}
+		});
+		
 		
 		lblaceptar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -186,7 +241,7 @@ public class Registro extends JFrame {
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
-				sonido(sonidoboton);
+				Reproductor.sonido(sonidoboton);
 
 			}
 
@@ -196,6 +251,18 @@ public class Registro extends JFrame {
 				Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				// DATOS CORRECTOS == CREAR USUARIO -> REDIRIGIR AL LOGIN
+				
+				JOptionPane.showMessageDialog(null, "Usuario registrado con éxito");
+				frame.dispose();				
+				frame.setVisible(false);
+				Login.main(null);
+				
+				
 			}
 		});
 		
@@ -207,7 +274,7 @@ public class Registro extends JFrame {
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 
-				Menu.sonido("sonidoboton.mp3");
+				Reproductor.sonido("sonidoboton.mp3");
 			}
 
 			@Override
@@ -230,20 +297,5 @@ public class Registro extends JFrame {
 		});
 	}
 	
-	public static void sonido(String archivo) {
-
-		try {
-
-			Reproductor musicobject = new Reproductor();
-			musicobject.reproduce(archivo);
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JavaLayerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+	
 }

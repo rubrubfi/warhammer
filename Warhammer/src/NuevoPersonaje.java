@@ -317,7 +317,7 @@ public class NuevoPersonaje extends JFrame {
 				Image imgfondo = new ImageIcon(".\\images\\botoncontinuarencima.png").getImage();
 				ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
 				lblcontinuar.setIcon(imgfondo1);
-				Menu.sonido("sonidoboton.mp3");
+				Reproductor.sonido("sonidoboton.mp3");
 			}
 
 			@Override
@@ -353,7 +353,7 @@ public class NuevoPersonaje extends JFrame {
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 
-				Menu.sonido("sonidoboton.mp3");
+				Reproductor.sonido("sonidoboton.mp3");
 			}
 
 			@Override
