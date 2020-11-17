@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.SystemColor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -84,8 +85,7 @@ public class NuevoPersonaje extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NuevoPersonaje() {
-		
+	public NuevoPersonaje() {		
 		
 		try {
 			timer.purge();
@@ -97,9 +97,7 @@ public class NuevoPersonaje extends JFrame {
 				}, timeToRun);
 		}catch(IllegalStateException e) {
 			
-		}
-		
-			
+		}			
 		
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,10 +106,52 @@ public class NuevoPersonaje extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		// CREAMOS TXTFIELD'S PARA LOS DATOS DE NOMBRE Y EDAD
+		
+		txtnombre = new JTextField();		
+		txtnombre.setBounds(308, 231, 244, 27);
+		contentPane.add(txtnombre);
+		txtnombre.setColumns(10);		
 
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
-		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
+		txtedad = new JFormattedTextField();		
+		txtedad.setColumns(10);
+		txtedad.setBounds(308, 303, 85, 27);
+		contentPane.add(txtedad);		
 
+		// CREAMOS COMBOBOX PARA RAZA, SEXO Y CLASE
+		
+		comboProfesion = new JComboBox();
+		comboProfesion.setModel(new DefaultComboBoxModel(new String[] { "-" }));
+		comboProfesion.setBounds(644, 232, 241, 27);
+		contentPane.add(comboProfesion);
+
+		comboRaza = new JComboBox();
+		comboRaza.setModel(new DefaultComboBoxModel(new String[] { "Humano/a", "Elfo/a", "Enano/a", "Halfling" }));
+		comboRaza.setBounds(308, 374, 121, 27);
+		contentPane.add(comboRaza);
+
+		comboSexo = new JComboBox();
+		comboSexo.setModel(new DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
+		comboSexo.setBounds(644, 303, 109, 27);
+		contentPane.add(comboSexo);
+		
+		
+		// CREAMOS JLABEL DE TITULO, FONDO , CONTENIDO..
+		
+		JLabel lblNewLabel = new JLabel("Nombre");
+		lblNewLabel.setFont(new Font("Maiandra GD", Font.BOLD, 18));
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setBounds(311, 201, 186, 27);
+		contentPane.add(lblNewLabel);
+		
+
+		JLabel label2 = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
+		label2.setForeground(SystemColor.windowBorder);
+		label2.setBounds(456, 951, 466, 28);
+		contentPane.add(label2);
+		
+		
 		JLabel lblrayamarilla = new JLabel("_____________________");
 		lblrayamarilla.setForeground(new Color(255, 204, 0));
 		lblrayamarilla.setFont(new Font("SimSun", Font.BOLD, 56));
@@ -127,10 +167,149 @@ public class NuevoPersonaje extends JFrame {
 		contentPane.add(lblcontinuar);
 		lblcontinuar.setVisible(false);
 
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(123, 16, 311, 105);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblProfesionActual = new JLabel("Profesion Actual");
+		lblProfesionActual.setForeground(new Color(0, 0, 0));
+		lblProfesionActual.setFont(new Font("Maiandra GD", Font.BOLD, 18));
+		lblProfesionActual.setBounds(647, 201, 238, 27);
+		contentPane.add(lblProfesionActual);
+
+		JLabel lblEdad = new JLabel("Edad");
+		lblEdad.setForeground(new Color(0, 0, 0));
+		lblEdad.setFont(new Font("Maiandra GD", Font.BOLD, 18));
+		lblEdad.setBounds(311, 276, 186, 27);
+		contentPane.add(lblEdad);
+
+		JLabel lblraza = new JLabel("");
+		lblraza.setBounds(646, 270, 564, 584);
+		contentPane.add(lblraza);
+		
+		JLabel lblSexo = new JLabel("Sexo");
+		lblSexo.setForeground(new Color(0, 0, 0));
+		lblSexo.setFont(new Font("Maiandra GD", Font.BOLD, 18));
+		lblSexo.setBounds(647, 271, 186, 27);
+		contentPane.add(lblSexo);
+
+		JLabel lblRaza = new JLabel("Raza");
+		lblRaza.setForeground(new Color(0, 0, 0));
+		lblRaza.setFont(new Font("Maiandra GD", Font.BOLD, 18));
+		lblRaza.setBounds(311, 342, 186, 27);
+		contentPane.add(lblRaza);
+		
+		JLabel lblvolver = new JLabel("");
+		lblvolver.setBounds(308, 794, 74, 76);
+		contentPane.add(lblvolver);
+
+		JLabel lbldescripcion = new JLabel("");
+		lbldescripcion.setVerticalAlignment(SwingConstants.TOP);
+		lbldescripcion.setHorizontalAlignment(SwingConstants.LEFT);
+		lbldescripcion.setFont(new Font("SansSerif", Font.PLAIN, 16));
+		lbldescripcion.setForeground(Color.BLACK);
+		lbldescripcion.setBounds(308, 426, 319, 456);
+		contentPane.add(lbldescripcion);
+	
+		JLabel lblPersonaje = new JLabel("Nuevo Personaje");
+		lblPersonaje.setForeground(new Color(255, 204, 0));
+		lblPersonaje.setFont(new Font("SimSun", Font.BOLD, 56));
+		lblPersonaje.setBounds(433, 6, 510, 115);
+		contentPane.add(lblPersonaje);
+
+		JLabel label = new JLabel("Nuevo Personaje");
+		label.setForeground(new Color(0, 0, 0));
+		label.setFont(new Font("SimSun", Font.BOLD, 56));
+		label.setBounds(429, 6, 781, 115);
+		contentPane.add(label);
+
+		JLabel lblperga = new JLabel("");
+		lblperga.setVerticalAlignment(SwingConstants.TOP);
+		lblperga.setHorizontalAlignment(SwingConstants.LEFT);
+		lblperga.setForeground(Color.YELLOW);
+		lblperga.setFont(new Font("Eras Demi ITC", Font.PLAIN, 18));
+		lblperga.setBounds(56, 120, 1165, 832);
+		contentPane.add(lblperga);		
+
+		JLabel FONDO = new JLabel("");
+		FONDO.setBounds(0, 0, 1270, 991);
+		contentPane.add(FONDO);		
+		
+		// ASIGNAMOS A CADA JLABEL , SU IMAGEN CORRESPONDIENTE
+
+		Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
+		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+		lblvolver.setIcon(imgv);		
+
+		Image prueba = new ImageIcon(".\\images\\titulo.png").getImage();
+		ImageIcon probando = new ImageIcon(prueba.getScaledInstance(300, 90, Image.SCALE_SMOOTH));
+		lblNewLabel_1.setIcon(probando);
+		
 		Image imgb1 = new ImageIcon(".\\images\\botoncontinuar.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
-		lblcontinuar.setIcon(imgb11);
+		lblcontinuar.setIcon(imgb11);	
+		
+		Image imgh = new ImageIcon(".\\images\\pergahorizontal.png").getImage();
+		ImageIcon imgperga = new ImageIcon(imgh.getScaledInstance(1165, 832, Image.SCALE_SMOOTH));
+		lblperga.setIcon(imgperga);
+		
+		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
+		FONDO.setIcon(imgfondo1);
+		
 
+		// ASIGNAMOS POR DEFECTO LA DESCRIPCION Y LA IMAGEN DE LA RAZA DE LOS HUMANOS (
+		// YA QUE VA A SER LA PRIMERA DE LA LISTA )
+		
+		// ESTO DEBERIA REALIZARSE MEDIANTE UNA COMPROBACIÓN AUTOMÁTICA MEDIANTE UN MÉTODO
+		// ---------------------------------------------------------------------------------
+		
+		Image img = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+		ImageIcon imghumano = new ImageIcon(img.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
+		lblraza.setIcon(imghumano);
+
+		objetoContenido.setRaza(comboRaza.getSelectedItem().toString());
+		descripcion = objetoContenido.getRaza();
+		lbldescripcion.setText(descripcion);
+
+		profesiones = Contenido.profesiones(comboRaza.getSelectedItem().toString());
+		comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+
+		
+		
+		// DEFINIMOS ACCIONES EN LOS TEXTFIELD. 
+		// LIMITAMOS EL TEXTFIELD DE NOMBRE A 30 CARACTERES
+		// LIMITAMOS EL TEXTFIELD DE EDAD A 4 CARACTERES Y NÚMEROS EXCLUSIVAMENTE
+		//SI ESTAN VACIOS, NO PODEMOS CONTINUAR
+		
+		txtnombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtnombre.getText().length() >= 30) 
+					e.consume();
+
+			}
+		});
+		
+		txtedad.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if (txtedad.getText().length() >= 4) // LIMITAMOS EL TEXTFIELD A 4 CARACTERES
+					e.consume();
+
+				char c = e.getKeyChar();
+				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+					getToolkit().beep();
+					e.consume();
+				}
+
+			}
+		});
+		
+		
+		
 		lblcontinuar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -164,22 +343,8 @@ public class NuevoPersonaje extends JFrame {
 
 			}
 		});
-
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(123, 16, 311, 105);
-		contentPane.add(lblNewLabel_1);
-		Image prueba = new ImageIcon(".\\images\\titulo.png").getImage();
-		ImageIcon probando = new ImageIcon(prueba.getScaledInstance(300, 90, Image.SCALE_SMOOTH));
-		lblNewLabel_1.setIcon(probando);
-
-		JLabel lblvolver = new JLabel("");
-		lblvolver.setBounds(308, 794, 74, 76);
-		contentPane.add(lblvolver);
-
-		Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
-		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
-		lblvolver.setIcon(imgv);
-
+		
+		
 		lblvolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -208,147 +373,16 @@ public class NuevoPersonaje extends JFrame {
 				lblvolver.setIcon(imgv);
 			}
 		});
-
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setBounds(311, 201, 186, 27);
-		contentPane.add(lblNewLabel);
-
-		txtnombre = new JTextField();
-		txtnombre.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-				if (txtnombre.getText().length() >= 30) // LIMITAMOS EL TEXTFIELD A 30 CARACTERES
-					e.consume();
-
-			}
-		});
-		txtnombre.setBounds(308, 231, 244, 27);
-		contentPane.add(txtnombre);
-		txtnombre.setColumns(10);
-
-		JLabel lblProfesionActual = new JLabel("Profesion Actual");
-		lblProfesionActual.setForeground(new Color(0, 0, 0));
-		lblProfesionActual.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		lblProfesionActual.setBounds(647, 201, 238, 27);
-		contentPane.add(lblProfesionActual);
-
-		JLabel lblEdad = new JLabel("Edad");
-		lblEdad.setForeground(new Color(0, 0, 0));
-		lblEdad.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		lblEdad.setBounds(311, 276, 186, 27);
-		contentPane.add(lblEdad);
-
-		// RESTRINGIMOS EL TEXTFIELD A USO NUMÉRICO
-
-		txtedad = new JFormattedTextField();
-		txtedad.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-				if (txtedad.getText().length() >= 4) // LIMITAMOS EL TEXTFIELD A 4 CARACTERES
-					e.consume();
-
-				char c = e.getKeyChar();
-				if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
-					getToolkit().beep();
-					e.consume();
-				}
-
-			}
-		});
-		txtedad.setColumns(10);
-		txtedad.setBounds(308, 303, 85, 27);
-		contentPane.add(txtedad);
-
-		JLabel lblSexo = new JLabel("Sexo");
-		lblSexo.setForeground(new Color(0, 0, 0));
-		lblSexo.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		lblSexo.setBounds(647, 271, 186, 27);
-		contentPane.add(lblSexo);
-
-		JLabel lblRaza = new JLabel("Raza");
-		lblRaza.setForeground(new Color(0, 0, 0));
-		lblRaza.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		lblRaza.setBounds(311, 342, 186, 27);
-		contentPane.add(lblRaza);
-
-		comboProfesion = new JComboBox();
-		comboProfesion.setModel(new DefaultComboBoxModel(new String[] { "-" }));
-		comboProfesion.setBounds(644, 232, 241, 27);
-		contentPane.add(comboProfesion);
-
-		comboRaza = new JComboBox();
-		comboRaza.setModel(new DefaultComboBoxModel(new String[] { "Humano/a", "Elfo/a", "Enano/a", "Halfling" }));
-		comboRaza.setBounds(308, 374, 121, 27);
-		contentPane.add(comboRaza);
-
-		comboSexo = new JComboBox();
-		comboSexo.setModel(new DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
-		comboSexo.setBounds(644, 303, 109, 27);
-		contentPane.add(comboSexo);
-
-		JLabel lblraza = new JLabel("");
-		lblraza.setBounds(646, 270, 564, 584);
-		contentPane.add(lblraza);
-
-		JLabel lbldescripcion = new JLabel("");
-		lbldescripcion.setVerticalAlignment(SwingConstants.TOP);
-		lbldescripcion.setHorizontalAlignment(SwingConstants.LEFT);
-		lbldescripcion.setFont(new Font("SansSerif", Font.PLAIN, 16));
-		lbldescripcion.setForeground(Color.BLACK);
-		lbldescripcion.setBounds(308, 426, 319, 456);
-		contentPane.add(lbldescripcion);
-
-		// ASIGNAMOS POR DEFECTO LA DESCRIPCION Y LA IMAGEN DE LA RAZA DE LOS HUMANOS (
-		// YA QUE VA A SER LA PRIMERA DE LA LISTA )
-
-		objetoContenido.setRaza(comboRaza.getSelectedItem().toString());
-		descripcion = objetoContenido.getRaza();
-		lbldescripcion.setText(descripcion);
-
-		profesiones = Contenido.profesiones(comboRaza.getSelectedItem().toString());
-		comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-		Image img = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
-		ImageIcon imghumano = new ImageIcon(img.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
-		lblraza.setIcon(imghumano);
-
-		Image imgh = new ImageIcon(".\\images\\pergahorizontal.png").getImage();
-		ImageIcon imgperga = new ImageIcon(imgh.getScaledInstance(1165, 832, Image.SCALE_SMOOTH));
-
-		JLabel lblPersonaje = new JLabel("Nuevo Personaje");
-		lblPersonaje.setForeground(new Color(255, 204, 0));
-		lblPersonaje.setFont(new Font("SimSun", Font.BOLD, 56));
-		lblPersonaje.setBounds(433, 6, 510, 115);
-		contentPane.add(lblPersonaje);
-
-		JLabel label = new JLabel("Nuevo Personaje");
-		label.setForeground(new Color(0, 0, 0));
-		label.setFont(new Font("SimSun", Font.BOLD, 56));
-		label.setBounds(429, 6, 781, 115);
-		contentPane.add(label);
-
-		JLabel lblperga = new JLabel("");
-		lblperga.setVerticalAlignment(SwingConstants.TOP);
-		lblperga.setHorizontalAlignment(SwingConstants.LEFT);
-		lblperga.setForeground(Color.YELLOW);
-		lblperga.setFont(new Font("Eras Demi ITC", Font.PLAIN, 18));
-		lblperga.setBounds(56, 120, 1165, 832);
-		contentPane.add(lblperga);
-		lblperga.setIcon(imgperga);
-
-		JLabel FONDO = new JLabel("");
-		FONDO.setBounds(0, 0, 1270, 991);
-		contentPane.add(FONDO);
-		FONDO.setIcon(imgfondo1);
-
+		
 		// DEFINIMOS QUE AL CAMBIAR EL ITEM SELECCIONADO DEL COMBOBOX, TAMBIÉN CAMBIEN
 		// LA IMAGEN Y LA DESCRIPCIÓN
-
-		// CAMBIAMOS FOTOS SEGÚN RAZA Y SEXO
+		// CAMBIAMOS FOTOS SEGÚN RAZA Y SEXO	
+		
+		// ------------------------------------------------------------------------------------
+		// ESTE ACTION LISTENER (COMBOSEXO) Y EL DE MÁS ABAJO (COMBORAZA) TIENEN EL MISMO CÓDIGO
+		// HAY QUE CREAR UN MÉTODO EL CUAL RECIBA PARÁMETROS DE RAZA Y SEXO
+		// Y ÉSTE TE DEVUELVA LA IMAGEN CORRESPONDIENTE
+		// -------------------------------------------------------------------------------------
 
 		comboSexo.addActionListener(new ActionListener() {
 
@@ -648,6 +682,10 @@ public class NuevoPersonaje extends JFrame {
 
 	}
 
+	// MÉTODO QUE VALIDA QUE LOS TEXTFIELD DE NOMBRE Y EDAD ESTÉN RELLENADOS
+	// TRUE = MOSTRAR BOTÓN CONTINUAR
+	// FALSE = OCULTAR BOTÓN
+	
 	private void validateCharacter() {
 		int steps = 0;
 
@@ -698,8 +736,6 @@ public class NuevoPersonaje extends JFrame {
 		}catch(IllegalStateException e) {
 			System.out.println("Error en el metodo");
 		}
-		
-		
 	    
 
 	}

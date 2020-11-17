@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
 
 public class Menu extends JFrame {
 
@@ -103,6 +104,11 @@ public class Menu extends JFrame {
 		btn4.setHorizontalAlignment(SwingConstants.CENTER);
 		btn4.setBounds(769, 651, 332, 64);
 		contentPane.add(btn4);
+		
+		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
+		label.setForeground(SystemColor.windowBorder);
+		label.setBounds(456, 951, 466, 28);
+		contentPane.add(label);
 		
 		JLabel lblperga = new JLabel("");
 		lblperga.setBounds(720, 63, 428, 806);
