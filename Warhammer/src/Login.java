@@ -121,10 +121,6 @@ public class Login extends JFrame {
 		lblregistro.setBounds(812, 617, 244, 55);
 		contentPane.add(lblregistro);
 
-		JLabel lblsalir = new JLabel("");
-		lblsalir.setBounds(1125, 872, 76, 64);
-		contentPane.add(lblsalir);
-
 		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
 		label.setForeground(SystemColor.windowBorder);
 		label.setBounds(456, 951, 466, 28);
@@ -155,11 +151,6 @@ public class Login extends JFrame {
 		Image imgregistro = new ImageIcon(".\\images\\botonregistro.png").getImage();
 		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(240, 70,  Image.SCALE_SMOOTH));
 		lblregistro.setIcon(imgregistro2);	
-	
-
-		Image imgtest = new ImageIcon(".\\images\\boton-salir.png").getImage();
-		ImageIcon imgtest2 = new ImageIcon(imgtest.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		lblsalir.setIcon(imgtest2);
 
 		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
@@ -223,38 +214,9 @@ public class Login extends JFrame {
 				Registro.registrar();
 			}
 		});
+
 		
-
-		lblsalir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				
-
-				
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir-encima.png").getImage();
-				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgb11);
-				Reproductor.sonido(sonidoboton);
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
-				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgb11);
-
-			}
-		});
-
-
+		
 		Thread t = new Thread(new MiHilo());
 		t.start();
 

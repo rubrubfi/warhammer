@@ -19,10 +19,13 @@ public class ventanasalir extends JFrame {
 
 	private JPanel contentPane;
 	public static ventanasalir frame;
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void salir() {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -49,6 +52,7 @@ public class ventanasalir extends JFrame {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -73,14 +77,14 @@ public class ventanasalir extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("<html> <center>\u00A1ATENCI\u00D3N \u00A1 </center><br><center>Se va a cerrar el juego. </center><br><center>\u00BFSeguro que quieres salir ?</center></html>");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Eras Medium ITC", Font.BOLD, 20));
-		lblNewLabel.setForeground(new Color(255, 215, 0));
-		lblNewLabel.setBounds(47, 40, 323, 138);
+		lblNewLabel.setFont(new Font("Eras Light ITC", Font.BOLD, 20));
+		lblNewLabel.setForeground(Color.YELLOW);
+		lblNewLabel.setBounds(45, 52, 323, 138);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblfondo = new JLabel("");
 		lblfondo.setFont(new Font("Myanmar Text", Font.PLAIN, 12));
-		lblfondo.setBounds(-20, -30, 450, 381);
+		lblfondo.setBounds(-20, -60, 450, 445);
 		contentPane.add(lblfondo);
 
 		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
@@ -92,7 +96,7 @@ public class ventanasalir extends JFrame {
 		lblsalir.setIcon(imgtest2);
 
 		Image imgventana = new ImageIcon(".\\images\\ventana-vacia.png").getImage();
-		ImageIcon imgventana2 = new ImageIcon(imgventana.getScaledInstance(465, 345,Image.SCALE_SMOOTH));
+		ImageIcon imgventana2 = new ImageIcon(imgventana.getScaledInstance(460,340,Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgventana2);
 		
 		lblaceptar.addMouseListener(new MouseAdapter() {
@@ -136,10 +140,11 @@ public class ventanasalir extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				frame.dispose();	
 				
-				//LLAMAMOS A LA CLASE DESDE LA QUE ESTABAMOS
+				
+
+				frame.dispose();		
+
 				
 			}
 
@@ -154,4 +159,6 @@ public class ventanasalir extends JFrame {
 
 	}
 
+	
+	
 }

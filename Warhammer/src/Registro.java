@@ -23,6 +23,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.EmptyBorder;
 
 import javazoom.jl.decoder.JavaLayerException;
+import javax.swing.JCheckBox;
 
 public class Registro extends JFrame {
 
@@ -86,7 +87,7 @@ public class Registro extends JFrame {
 		txtUsuario = new JTextField();
 		txtUsuario.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		txtUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		txtUsuario.setBounds(377, 443, 220, 28);
+		txtUsuario.setBounds(547, 382, 220, 28);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
@@ -94,66 +95,70 @@ public class Registro extends JFrame {
 		txtCorreo.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCorreo.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		txtCorreo.setColumns(10);
-		txtCorreo.setBounds(377, 538, 220, 28);
+		txtCorreo.setBounds(547, 455, 220, 28);
 		contentPane.add(txtCorreo);
 
 		txtpass = new JPasswordField();
 		txtpass.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		txtpass.setHorizontalAlignment(SwingConstants.CENTER);
-		txtpass.setBounds(698, 443, 220, 28);
+		txtpass.setBounds(547, 530, 220, 28);
 		contentPane.add(txtpass);
 		
 
 		txtpass2 = new JPasswordField();
 		txtpass2.setHorizontalAlignment(SwingConstants.CENTER);
 		txtpass2.setFont(new Font("Maiandra GD", Font.BOLD, 18));
-		txtpass2.setBounds(698, 538, 220, 28);
+		txtpass2.setBounds(547, 603, 220, 28);
 		contentPane.add(txtpass2);
+		
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
+		lblUsuario.setFont(new Font("Felix Titling", Font.BOLD, 15));
+		lblUsuario.setBounds(547, 350, 187, 28);
+		contentPane.add(lblUsuario);
 		
 		
 		// CREAMOS JLABELS DE TITULO, FONDO Y BOTONES		
 		
 		JLabel lbltitulo = new JLabel("");
-		lbltitulo.setBounds(392, 186, 516, 150);
+		lbltitulo.setBounds(406, 166, 516, 150);
 		contentPane.add(lbltitulo);
-		
-		JLabel lblUsuario = new JLabel("Usuario");
-		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
-		lblUsuario.setFont(new Font("Felix Titling", Font.BOLD, 17));
-		lblUsuario.setBounds(377, 405, 187, 28);
-		contentPane.add(lblUsuario);
-
+	
 		JLabel lblpass = new JLabel("CONTRASE\u00D1A");
 		lblpass.setHorizontalAlignment(SwingConstants.LEFT);
-		lblpass.setFont(new Font("Felix Titling", Font.BOLD, 17));
-		lblpass.setBounds(698, 405, 187, 28);
+		lblpass.setFont(new Font("Felix Titling", Font.BOLD, 15));
+		lblpass.setBounds(547, 500, 187, 28);
 		contentPane.add(lblpass);		
 		
 		JLabel lblaceptar = new JLabel("");
-		lblaceptar.setBounds(510, 665, 270, 70);
+		lblaceptar.setBounds(517, 708, 270, 70);
 		contentPane.add(lblaceptar);
 		
 		JLabel lblvolver = new JLabel("");
-		lblvolver.setBounds(308, 794, 74, 76);
+		lblvolver.setBounds(597, 778, 108, 76);
 		contentPane.add(lblvolver);
 		
 		JLabel lblpass2 = new JLabel("CONFIRMAR CONTRASE\u00D1A");
 		lblpass2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblpass2.setFont(new Font("Felix Titling", Font.BOLD, 17));
-		lblpass2.setBounds(698, 500, 281, 28);
+		lblpass2.setFont(new Font("Felix Titling", Font.BOLD, 15));
+		lblpass2.setBounds(547, 573, 281, 28);
 		contentPane.add(lblpass2);
 		
 		
 		JLabel lblCorreo = new JLabel("CORREO");
 		lblCorreo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblCorreo.setFont(new Font("Felix Titling", Font.BOLD, 17));
-		lblCorreo.setBounds(377, 500, 187, 28);
+		lblCorreo.setFont(new Font("Felix Titling", Font.BOLD, 15));
+		lblCorreo.setBounds(547, 422, 187, 28);
 		contentPane.add(lblCorreo);
 		
 		JLabel label = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
 		label.setForeground(SystemColor.windowBorder);
 		label.setBounds(456, 951, 466, 28);
 		contentPane.add(label);		
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("He le\u00EDdo y acepto los t\u00E9rminos y condiciones");
+		chckbxNewCheckBox.setBounds(517, 656, 297, 18);
+		contentPane.add(chckbxNewCheckBox);
 		
 		
 		JLabel lblperga = new JLabel("");
@@ -173,13 +178,13 @@ public class Registro extends JFrame {
 		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
 		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
 		lbltitulo.setIcon(img2);		
-		
+
 		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
 		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(270, 70, Image.SCALE_SMOOTH));
 		lblaceptar.setIcon(imgaceptar2);	
 		
-		Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
-		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+		Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 		lblvolver.setIcon(imgv);		
 		
 		Image imgh = new ImageIcon(".\\images\\pergahorizontal.png").getImage();
@@ -270,8 +275,8 @@ public class Registro extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\volverencima.png").getImage();
-				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+				Image imgvolver = new ImageIcon(".\\images\\botonvolverpruebaencima.png").getImage();
+				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 
 				Reproductor.sonido("sonidoboton.mp3");
@@ -290,12 +295,10 @@ public class Registro extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\volver.png").getImage();
-				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(60, 80, Image.SCALE_SMOOTH));
+				Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 			}
 		});
 	}
-	
-	
 }

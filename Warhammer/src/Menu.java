@@ -263,22 +263,8 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				int seleccion = JOptionPane.showOptionDialog(null, "¿Quieres salir del programa?",
-						"Warhammer - Salir del juego", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-						new Object[] { "Si", "Cancelar" }, "opcion 1");
-
-				switch (seleccion) {
-
-				case 0:
-					System.exit(0);
-					break;
-
-				case 1:
-
-					break;
-
-				}
-
+				ventanasalir.salir();
+			
 			}
 
 			@Override
