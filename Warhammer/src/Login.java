@@ -132,7 +132,7 @@ public static JLabel lblcampos;
 		label.setBounds(456, 951, 466, 28);
 		contentPane.add(label);
 		
-		lblcampos = new JLabel("*Debes rellenar todos los campos");
+		lblcampos = new JLabel("* Debes rellenar todos los campos");
 		lblcampos.setFont(new Font("SansSerif", Font.BOLD, 12));
 		lblcampos.setForeground(Color.RED);
 		lblcampos.setBounds(830, 538, 244, 16);
@@ -288,7 +288,7 @@ public static JLabel lblcampos;
 			JOptionPane.showOptionDialog(null, "No debes dejar ningún campo vacío", "Atención !",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 			*/
-			lblcampos.setText("Debes rellenar todos los campos");
+			lblcampos.setText("* Debes rellenar todos los campos");
 			lblcampos.setVisible(true);
 			
 		} else {

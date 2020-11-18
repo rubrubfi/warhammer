@@ -23,8 +23,7 @@ public class Ventanasalir extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void salir() {
-		
+	public static void salir(JFrame padre) {		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,7 +38,7 @@ public class Ventanasalir extends JFrame {
 						}
 					} catch (Exception e) {
 					}
-					frame = new Ventanasalir();
+					frame = new Ventanasalir(padre);
 					
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
@@ -58,7 +57,7 @@ public class Ventanasalir extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ventanasalir() {
+	public Ventanasalir(JFrame padre) {
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 420, 300);
@@ -143,7 +142,9 @@ public class Ventanasalir extends JFrame {
 
 				frame.dispose();		
 				
-				
+				padre.enable();
+				padre.toFront();
+				padre.requestFocus();
 				
 			}
 

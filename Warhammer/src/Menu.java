@@ -263,7 +263,9 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				Ventanasalir.salir();
+				Ventanasalir.salir(frame);
+				
+				frame.disable();
 				
 			}
 
