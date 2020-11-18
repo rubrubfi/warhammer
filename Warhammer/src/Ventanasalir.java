@@ -15,10 +15,10 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class ventanasalir extends JFrame {
+public class Ventanasalir extends JFrame {
 
 	private JPanel contentPane;
-	public static ventanasalir frame;
+	public static Ventanasalir frame;
 	
 	/**
 	 * Launch the application.
@@ -39,7 +39,7 @@ public class ventanasalir extends JFrame {
 						}
 					} catch (Exception e) {
 					}
-					frame = new ventanasalir();
+					frame = new Ventanasalir();
 					
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
@@ -58,7 +58,7 @@ public class ventanasalir extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ventanasalir() {
+	public Ventanasalir() {
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 420, 300);
