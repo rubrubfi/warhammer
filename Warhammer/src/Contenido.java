@@ -46,7 +46,7 @@ public class Contenido {
 		
 		humanos = "<html>Los humanos son la raza más habitual del Viejo Mundo, y los fundadores del Imperio. "
 				+ "Aunque no son tan resistentes como los enanos ni tan sabios como los elfos, los humanos son una raza animada y dinámica que ha conseguido mucho en muy poco tiempo."
-				+ " son tremendamente adaptables, lo cual es tanto una gran ventaja como una grave debilidad. "
+				+ " Son tremendamente adaptables, lo cual es tanto una gran ventaja como una grave debilidad. "
 				+ "Mientras que muchos humanos heroicos han combatido contra la marea de oscuridad, es innegable que también han engrosado las filas del Caos.</html>";
 		
 		

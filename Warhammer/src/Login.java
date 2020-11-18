@@ -216,7 +216,6 @@ public class Login extends JFrame {
 		});
 
 		
-		
 		Thread t = new Thread(new MiHilo());
 		t.start();
 
