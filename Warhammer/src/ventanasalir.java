@@ -67,19 +67,19 @@ public class ventanasalir extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblaceptar = new JLabel("");
-		lblaceptar.setBounds(45, 202, 207, 59);
-		contentPane.add(lblaceptar);
+		JLabel lblSi = new JLabel("");
+		lblSi.setBounds(90, 202, 112, 59);
+		contentPane.add(lblSi);
 
-		JLabel lblsalir = new JLabel("");
-		lblsalir.setBounds(253, 202, 112, 59);
-		contentPane.add(lblsalir);
+		JLabel lblNo = new JLabel("");
+		lblNo.setBounds(215, 202, 112, 59);
+		contentPane.add(lblNo);
 
-		JLabel lblNewLabel = new JLabel("<html> <center>\u00A1ATENCI\u00D3N \u00A1 </center><br><center>Se va a cerrar el juego. </center><br><center>\u00BFSeguro que quieres salir ?</center></html>");
+		JLabel lblNewLabel = new JLabel("<html> <center>\u00A1 ATENCI\u00D3N \u00A1 </center><br><center>Se va a cerrar el juego. \u00BFSeguro que quieres salir ?</center></html>");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Eras Light ITC", Font.BOLD, 20));
-		lblNewLabel.setForeground(Color.YELLOW);
-		lblNewLabel.setBounds(45, 52, 323, 138);
+		lblNewLabel.setForeground(new Color(255, 255, 0));
+		lblNewLabel.setBounds(90, 52, 237, 138);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblfondo = new JLabel("");
@@ -87,25 +87,25 @@ public class ventanasalir extends JFrame {
 		lblfondo.setBounds(-20, -60, 450, 445);
 		contentPane.add(lblfondo);
 
-		Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
-		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
-		lblaceptar.setIcon(imgaceptar2);
+		Image imgaceptar = new ImageIcon(".\\images\\system\\botonSi.png").getImage();
+		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
+		lblSi.setIcon(imgaceptar2);
 
-		Image imgtest = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
+		Image imgtest = new ImageIcon(".\\images\\system\\botonNo.png").getImage();
 		ImageIcon imgtest2 = new ImageIcon(imgtest.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
-		lblsalir.setIcon(imgtest2);
+		lblNo.setIcon(imgtest2);
 
 		Image imgventana = new ImageIcon(".\\images\\system\\ventana-vacia.png").getImage();
 		ImageIcon imgventana2 = new ImageIcon(imgventana.getScaledInstance(460,340,Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgventana2);
 		
-		lblaceptar.addMouseListener(new MouseAdapter() {
+		lblSi.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptarencima.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
-				lblaceptar.setIcon(imgaceptar2);
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonSiencima.png").getImage();
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
+				lblSi.setIcon(imgaceptar2);
 				Reproductor.sonido("sonidoboton.mp3");
 
 			}
@@ -113,9 +113,9 @@ public class ventanasalir extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
-				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
-				lblaceptar.setIcon(imgaceptar2);
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonSi.png").getImage();
+				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
+				lblSi.setIcon(imgaceptar2);
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -127,33 +127,32 @@ public class ventanasalir extends JFrame {
 			}
 		});
 		
-		lblsalir.addMouseListener(new MouseAdapter() {
+		lblNo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverpruebaencima.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonNoencima.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgv);
+				lblNo.setIcon(imgv);
 
 				Reproductor.sonido("sonidoboton.mp3");
 			}
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
 
 				frame.dispose();		
-
+				
+				
 				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonNo.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
-				lblsalir.setIcon(imgv);
+				lblNo.setIcon(imgv);
 			}
 		});
 
