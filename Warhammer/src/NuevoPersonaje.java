@@ -70,7 +70,7 @@ public class NuevoPersonaje extends JFrame {
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
-					ImageIcon img = new ImageIcon(".\\images\\icono.png");
+					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
 					
 				} catch (Exception e) {
@@ -237,23 +237,23 @@ public class NuevoPersonaje extends JFrame {
 		
 		// ASIGNAMOS A CADA JLABEL , SU IMAGEN CORRESPONDIENTE
 
-		Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+		Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
 		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 		lblvolver.setIcon(imgv);		
 
-		Image prueba = new ImageIcon(".\\images\\titulo.png").getImage();
+		Image prueba = new ImageIcon(".\\images\\system\\titulo.png").getImage();
 		ImageIcon probando = new ImageIcon(prueba.getScaledInstance(300, 90, Image.SCALE_SMOOTH));
 		lblNewLabel_1.setIcon(probando);
 		
-		Image imgb1 = new ImageIcon(".\\images\\botoncontinuar.png").getImage();
+		Image imgb1 = new ImageIcon(".\\images\\system\\botoncontinuar.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
 		lblcontinuar.setIcon(imgb11);	
 		
-		Image imgh = new ImageIcon(".\\images\\pergahorizontal.png").getImage();
+		Image imgh = new ImageIcon(".\\images\\system\\pergahorizontal.png").getImage();
 		ImageIcon imgperga = new ImageIcon(imgh.getScaledInstance(1165, 832, Image.SCALE_SMOOTH));
 		lblperga.setIcon(imgperga);
 		
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		Image imgfondo = new ImageIcon(".\\images\\system\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
 		FONDO.setIcon(imgfondo1);
 		
@@ -264,7 +264,7 @@ public class NuevoPersonaje extends JFrame {
 		// ESTO DEBERIA REALIZARSE MEDIANTE UNA COMPROBACIÓN AUTOMÁTICA MEDIANTE UN MÉTODO
 		// ---------------------------------------------------------------------------------
 		
-		Image img = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+		Image img = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 		ImageIcon imghumano = new ImageIcon(img.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 		lblraza.setIcon(imghumano);
 
@@ -314,7 +314,7 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgfondo = new ImageIcon(".\\images\\botoncontinuarencima.png").getImage();
+				Image imgfondo = new ImageIcon(".\\images\\system\\botoncontinuarencima.png").getImage();
 				ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
 				lblcontinuar.setIcon(imgfondo1);
 				Reproductor.sonido("sonidoboton.mp3");
@@ -323,7 +323,7 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgfondo = new ImageIcon(".\\images\\botoncontinuar.png").getImage();
+				Image imgfondo = new ImageIcon(".\\images\\system\\botoncontinuar.png").getImage();
 				ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
 				lblcontinuar.setIcon(imgfondo1);
 			}
@@ -349,7 +349,7 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\botonvolverpruebaencima.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverpruebaencima.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 
@@ -368,7 +368,7 @@ public class NuevoPersonaje extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
 				lblvolver.setIcon(imgv);
 			}
@@ -404,13 +404,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
 					} else {
 
-						Image img0 = new ImageIcon(".\\images\\humano-rogue.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
@@ -430,13 +430,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img1 = new ImageIcon(".\\images\\elfo-rogue.png").getImage();
+						Image img1 = new ImageIcon(".\\images\\razas\\elfo-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(650, 800, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgelfo);
 
 					} else {
 
-						Image img1 = new ImageIcon(".\\images\\elfa-rogue.png").getImage();
+						Image img1 = new ImageIcon(".\\images\\razas\\elfa-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(540, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgelfo);
 
@@ -457,13 +457,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image imgh = new ImageIcon(".\\images\\enano.png").getImage();
+						Image imgh = new ImageIcon(".\\images\\razas\\enano.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgenanos);
 
 					} else {
 
-						Image imgh = new ImageIcon(".\\images\\enana.png").getImage();
+						Image imgh = new ImageIcon(".\\images\\razas\\enana.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(540, 550, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgenanos);
 
@@ -483,13 +483,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img3 = new ImageIcon(".\\images\\halflingduo.png").getImage();
+						Image img3 = new ImageIcon(".\\images\\razas\\halflingduo.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghalfling);
 
 					} else {
 
-						Image img3 = new ImageIcon(".\\images\\halflingchica.png").getImage();
+						Image img3 = new ImageIcon(".\\images\\razas\\halflingchica.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(570, 620, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghalfling);
 
@@ -510,13 +510,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
 					} else {
 
-						Image img = new ImageIcon(".\\images\\humano-rogue.png").getImage();
+						Image img = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
 						ImageIcon imghumano = new ImageIcon(img.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghumano);
 
@@ -551,13 +551,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
 					} else {
 
-						Image img0 = new ImageIcon(".\\images\\humano-rogue.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
@@ -577,13 +577,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img1 = new ImageIcon(".\\images\\elfo-rogue.png").getImage();
+						Image img1 = new ImageIcon(".\\images\\razas\\elfo-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(650, 800, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgelfo);
 
 					} else {
 
-						Image img1 = new ImageIcon(".\\images\\elfa-rogue.png").getImage();
+						Image img1 = new ImageIcon(".\\images\\razas\\elfa-rogue.png").getImage();
 						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(540, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgelfo);
 
@@ -604,13 +604,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image imgh = new ImageIcon(".\\images\\enano.png").getImage();
+						Image imgh = new ImageIcon(".\\images\\razas\\enano.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgenanos);
 
 					} else {
 
-						Image imgh = new ImageIcon(".\\images\\enana.png").getImage();
+						Image imgh = new ImageIcon(".\\images\\razas\\enana.png").getImage();
 						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(540, 550, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imgenanos);
 
@@ -630,13 +630,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img3 = new ImageIcon(".\\images\\halflingduo.png").getImage();
+						Image img3 = new ImageIcon(".\\images\\razas\\halflingduo.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghalfling);
 
 					} else {
 
-						Image img3 = new ImageIcon(".\\images\\halflingchica.png").getImage();
+						Image img3 = new ImageIcon(".\\images\\razas\\halflingchica.png").getImage();
 						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(570, 620, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghalfling);
 
@@ -657,13 +657,13 @@ public class NuevoPersonaje extends JFrame {
 
 					if (indiceSexo == 0) {
 
-						Image img0 = new ImageIcon(".\\images\\humano-hechicero.png").getImage();
+						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghuman);
 
 					} else {
 
-						Image img = new ImageIcon(".\\images\\humano-rogue.png").getImage();
+						Image img = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
 						ImageIcon imghumano = new ImageIcon(img.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
 						lblraza.setIcon(imghumano);
 

@@ -43,7 +43,7 @@ public class ventanasalir extends JFrame {
 					
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
-					ImageIcon img = new ImageIcon(".\\images\\icono.png");
+					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
 					frame.setUndecorated(true);
 					frame.setVisible(true);
@@ -87,15 +87,15 @@ public class ventanasalir extends JFrame {
 		lblfondo.setBounds(-20, -60, 450, 445);
 		contentPane.add(lblfondo);
 
-		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
+		Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
 		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
 		lblaceptar.setIcon(imgaceptar2);
 
-		Image imgtest = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+		Image imgtest = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
 		ImageIcon imgtest2 = new ImageIcon(imgtest.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 		lblsalir.setIcon(imgtest2);
 
-		Image imgventana = new ImageIcon(".\\images\\ventana-vacia.png").getImage();
+		Image imgventana = new ImageIcon(".\\images\\system\\ventana-vacia.png").getImage();
 		ImageIcon imgventana2 = new ImageIcon(imgventana.getScaledInstance(460,340,Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgventana2);
 		
@@ -103,7 +103,7 @@ public class ventanasalir extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptarencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 				Reproductor.sonido("sonidoboton.mp3");
@@ -113,7 +113,7 @@ public class ventanasalir extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(200, 60, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 			}
@@ -131,7 +131,7 @@ public class ventanasalir extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\botonvolverpruebaencima.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverpruebaencima.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 				lblsalir.setIcon(imgv);
 
@@ -151,7 +151,7 @@ public class ventanasalir extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgvolver = new ImageIcon(".\\images\\botonvolverprueba.png").getImage();
+				Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
 				ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 				lblsalir.setIcon(imgv);
 			}

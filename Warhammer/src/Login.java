@@ -53,7 +53,7 @@ public class Login extends JFrame {
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
-					ImageIcon img = new ImageIcon(".\\images\\icono.png");
+					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -136,23 +136,23 @@ public class Login extends JFrame {
 
 		// ASIGNAMOS IMAGENES A LOS LABELS CORRESPONDIENTES
 
-		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
+		Image img = new ImageIcon(".\\images\\system\\titulo.png").getImage();
 		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
 		lbltitulo.setIcon(img2);
 
-		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
+		Image imgperga = new ImageIcon(".\\images\\system\\pergamino-horizontal.png").getImage();
 		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
 		lblperga.setIcon(imgperga1);
 
-		Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
+		Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
 		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 		lblaceptar.setIcon(imgaceptar2);
 
-		Image imgregistro = new ImageIcon(".\\images\\botonregistro.png").getImage();
+		Image imgregistro = new ImageIcon(".\\images\\system\\botonregistro.png").getImage();
 		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(240, 70,  Image.SCALE_SMOOTH));
 		lblregistro.setIcon(imgregistro2);	
 
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		Image imgfondo = new ImageIcon(".\\images\\system\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgfondo1);
 
@@ -162,7 +162,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonaceptarencima.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptarencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 				Reproductor.sonido(sonidoboton);
@@ -172,7 +172,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonaceptar.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblaceptar.setIcon(imgaceptar2);
 			}
@@ -191,7 +191,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonregistroencima.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonregistroencima.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 				Reproductor.sonido(sonidoboton);
@@ -201,7 +201,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgaceptar = new ImageIcon(".\\images\\botonregistro.png").getImage();
+				Image imgaceptar = new ImageIcon(".\\images\\system\\botonregistro.png").getImage();
 				ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 				lblregistro.setIcon(imgaceptar2);
 			}

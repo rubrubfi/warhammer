@@ -53,7 +53,7 @@ public class Menu extends JFrame {
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
-					ImageIcon img = new ImageIcon(".\\images\\icono.png");
+					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgclick = new ImageIcon(".\\images\\boton1encima.png").getImage();
+				Image imgclick = new ImageIcon(".\\images\\system\\boton1encima.png").getImage();
 				ImageIcon imgb33 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn1.setIcon(imgb33);
 				Reproductor.sonido(sonidoboton);
@@ -105,7 +105,7 @@ public class Menu extends JFrame {
 			}
 
 			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\boton1.png").getImage();
+				Image imgnormal = new ImageIcon(".\\images\\system\\boton1.png").getImage();
 				ImageIcon imgb34 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn1.setIcon(imgb34);
 			}
@@ -153,35 +153,35 @@ public class Menu extends JFrame {
 
 		// ASIGNAMOS IMAGEN A LOS JLABEL
 
-		Image imgb1 = new ImageIcon(".\\images\\boton1.png").getImage();
+		Image imgb1 = new ImageIcon(".\\images\\system\\boton1.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn1.setIcon(imgb11);
 		
-		Image imgb2 = new ImageIcon(".\\images\\boton2.png").getImage();
+		Image imgb2 = new ImageIcon(".\\images\\system\\boton2.png").getImage();
 		ImageIcon imgb22 = new ImageIcon(imgb2.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn2.setIcon(imgb22);
 
-		Image imgb3 = new ImageIcon(".\\images\\boton3.png").getImage();
+		Image imgb3 = new ImageIcon(".\\images\\system\\boton3.png").getImage();
 		ImageIcon imgb33 = new ImageIcon(imgb3.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn3.setIcon(imgb33);
 
-		Image imgb4 = new ImageIcon(".\\images\\boton4.png").getImage();
+		Image imgb4 = new ImageIcon(".\\images\\system\\boton4.png").getImage();
 		ImageIcon imgb44 = new ImageIcon(imgb4.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn4.setIcon(imgb44);
 
-		Image imgperga = new ImageIcon(".\\images\\pergamino-horizontal.png").getImage();
+		Image imgperga = new ImageIcon(".\\images\\system\\pergamino-horizontal.png").getImage();
 		ImageIcon imgperga1 = new ImageIcon(imgperga.getScaledInstance(430, 813, Image.SCALE_SMOOTH));
 		lblperga.setIcon(imgperga1);
 
-		Image img = new ImageIcon(".\\images\\titulo.png").getImage();
+		Image img = new ImageIcon(".\\images\\system\\titulo.png").getImage();
 		ImageIcon img2 = new ImageIcon(img.getScaledInstance(490, 182, Image.SCALE_SMOOTH));
 		lbltitulo.setIcon(img2);
 
-		Image imgfondo = new ImageIcon(".\\images\\fondo2.jpg").getImage();
+		Image imgfondo = new ImageIcon(".\\images\\system\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgfondo1);
 
-		Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
+		Image imgsalir = new ImageIcon(".\\images\\system\\boton-salir.png").getImage();
 		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		lblsalir.setIcon(imgsaliendo);
 
@@ -190,7 +190,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgclick = new ImageIcon(".\\images\\boton2encima.png").getImage();
+				Image imgclick = new ImageIcon(".\\images\\system\\boton2encima.png").getImage();
 				ImageIcon imgb11 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn2.setIcon(imgb11);
 				Reproductor.sonido(sonidoboton);
@@ -200,7 +200,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgnormal = new ImageIcon(".\\images\\boton2.png").getImage();
+				Image imgnormal = new ImageIcon(".\\images\\system\\boton2.png").getImage();
 				ImageIcon imgb12 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn2.setIcon(imgb12);
 
@@ -211,7 +211,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgclick = new ImageIcon(".\\images\\boton3encima.png").getImage();
+				Image imgclick = new ImageIcon(".\\images\\system\\boton3encima.png").getImage();
 				ImageIcon imgb21 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn3.setIcon(imgb21);
 				Reproductor.sonido(sonidoboton);
@@ -219,7 +219,7 @@ public class Menu extends JFrame {
 			}
 
 			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\boton3.png").getImage();
+				Image imgnormal = new ImageIcon(".\\images\\system\\boton3.png").getImage();
 				ImageIcon imgb22 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn3.setIcon(imgb22);
 			}
@@ -240,7 +240,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgclick = new ImageIcon(".\\images\\boton4encima.png").getImage();
+				Image imgclick = new ImageIcon(".\\images\\system\\boton4encima.png").getImage();
 				ImageIcon imgb21 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn4.setIcon(imgb21);
 				Reproductor.sonido(sonidoboton);
@@ -248,7 +248,7 @@ public class Menu extends JFrame {
 			}
 
 			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\boton4.png").getImage();
+				Image imgnormal = new ImageIcon(".\\images\\system\\boton4.png").getImage();
 				ImageIcon imgb22 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 				btn4.setIcon(imgb22);
 			}
@@ -270,7 +270,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir-encima.png").getImage();
+				Image imgsalir = new ImageIcon(".\\images\\system\\boton-salir-encima.png").getImage();
 				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 				lblsalir.setIcon(imgb11);
 				Reproductor.sonido(sonidoboton);
@@ -279,7 +279,7 @@ public class Menu extends JFrame {
 			@Override
 			public void mouseExited(MouseEvent e) {
 
-				Image imgsalir = new ImageIcon(".\\images\\boton-salir.png").getImage();
+				Image imgsalir = new ImageIcon(".\\images\\system\\boton-salir.png").getImage();
 				ImageIcon imgb11 = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 				lblsalir.setIcon(imgb11);
 
