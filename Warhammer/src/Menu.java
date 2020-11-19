@@ -205,6 +205,13 @@ public class Menu extends JFrame {
 				btn2.setIcon(imgb12);
 
 			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+				frame.setVisible(false);
+				Mispersonajes.personajes();
+			}
 		});
 
 		btn3.addMouseListener(new MouseAdapter() {

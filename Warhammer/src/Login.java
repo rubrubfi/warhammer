@@ -164,7 +164,7 @@ public static JLabel lblcampos;
 		Image imgregistro = new ImageIcon(".\\images\\system\\botonregistro.png").getImage();
 		ImageIcon imgregistro2 = new ImageIcon(imgregistro.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
 		lblregistro.setIcon(imgregistro2);
-
+		
 		Image imgfondo = new ImageIcon(".\\images\\system\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
 		lblfondo.setIcon(imgfondo1);
