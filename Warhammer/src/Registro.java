@@ -391,7 +391,7 @@ public class Registro extends JFrame {
 					} else {
 						encriptada = DigestUtils.md5Hex(pass2);
 
-						Consultas.asignaID(usuario, correo, encriptada);
+						Consultas.asignaIDusuario(usuario, correo, encriptada);
 						todobien = true;
 					}
 

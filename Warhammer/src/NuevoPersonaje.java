@@ -61,6 +61,7 @@ public class NuevoPersonaje extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @param id2 
 	 */
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -84,8 +85,11 @@ public class NuevoPersonaje extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param id2 
 	 */
 	public NuevoPersonaje() {		
+		
+		
 		
 		try {
 			timer.purge();
@@ -338,8 +342,24 @@ public class NuevoPersonaje extends JFrame {
 				 * }
 				 */
 				
+				String nombre, raza, clase, genero;
+				
+				int edad, id;
+				
+				nombre = txtnombre.getText();
+				raza = comboRaza.getSelectedItem().toString();
+				clase = comboProfesion.getSelectedItem().toString();
+				genero = comboSexo.getSelectedItem().toString();
+				edad = Integer.parseInt(txtedad.getText());
+				id = Menu.user.getId();
+				
+				Consultas.nuevoPersonaje(id, nombre, raza, clase, genero, edad);				
+				
 				timer.cancel();
 				timer2.cancel();
+				
+				Mispersonajes.personajes(id);
+				frame.setVisible(false);
 
 			}
 		});

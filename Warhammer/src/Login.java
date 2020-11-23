@@ -34,7 +34,8 @@ public class Login extends JFrame {
 	public static String sonidoboton, musicabase;
 	private JTextField txtUsuario;
 	private JPasswordField txtpass;
-public static JLabel lblcampos;
+	public static JLabel lblcampos;
+
 
 	/**
 	 * Launch the application.
@@ -216,7 +217,12 @@ public static JLabel lblcampos;
 
 				if (comprobacion()) {
 
-					Menu.home();
+					int id = 0;
+					
+					String usuario = txtUsuario.getText();					
+					
+					Menu.home(id, usuario);					
+					
 					frame.setVisible(false);
 
 				} else {
@@ -313,4 +319,7 @@ public static JLabel lblcampos;
 		return esCorrecto;
 
 	}
+	
+	
+	
 }

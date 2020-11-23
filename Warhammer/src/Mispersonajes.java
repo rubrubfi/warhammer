@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -24,8 +25,10 @@ public class Mispersonajes extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * 
+	 * @param idusuario
 	 */
-	public static void personajes() {
+	public static void personajes(int idusuario) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,7 +43,7 @@ public class Mispersonajes extends JFrame {
 					} catch (Exception e) {
 					}
 
-					frame = new Mispersonajes();
+					frame = new Mispersonajes(idusuario);
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
@@ -55,8 +58,10 @@ public class Mispersonajes extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * 
+	 * @param idusuario
 	 */
-	public Mispersonajes() {
+	public Mispersonajes(int idusuario) {
 
 		sonidoboton = "sonidoboton.mp3";
 
@@ -85,22 +90,13 @@ public class Mispersonajes extends JFrame {
 		JLabel lbleliminar = new JLabel("");
 		lbleliminar.setBounds(122, 849, 244, 55);
 		contentPane.add(lbleliminar);
-		
+
 		JLabel lblvolver = new JLabel("");
 		lblvolver.setBounds(315, 721, 69, 55);
 		contentPane.add(lblvolver);
 
-		JLabel lblmarco = new JLabel("");
-		lblmarco.setBounds(90, 176, 300, 600);
-		contentPane.add(lblmarco);
-
-		JLabel lblfondo = new JLabel("");
-		lblfondo.setBounds(0, 0, 1270, 991);
-		contentPane.add(lblfondo);
-
 		Image imgfondo = new ImageIcon(".\\images\\system\\fondo3.png").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1300, 1100, Image.SCALE_SMOOTH));
-		lblfondo.setIcon(imgfondo1);
 
 		Image imgaceptar = new ImageIcon(".\\images\\system\\botonaceptar.png").getImage();
 		ImageIcon imgaceptar2 = new ImageIcon(imgaceptar.getScaledInstance(240, 70, Image.SCALE_SMOOTH));
@@ -115,7 +111,36 @@ public class Mispersonajes extends JFrame {
 
 		Image imgmarco = new ImageIcon(".\\images\\system\\marcoprueba.png").getImage();
 		ImageIcon imgmarco2 = new ImageIcon(imgmarco.getScaledInstance(300, 600, Image.SCALE_SMOOTH));
+
+		JPanel panel = new JPanel();
+		panel.setBounds(142, 242, 208, 105);
+		contentPane.add(panel);
+		panel.setLayout(null);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBounds(142, 359, 208, 105);
+		contentPane.add(panel_1);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBounds(142, 476, 208, 105);
+		contentPane.add(panel_2);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBounds(142, 593, 208, 105);
+		contentPane.add(panel_3);
+
+		JLabel lblmarco = new JLabel("");
+		lblmarco.setBounds(90, 176, 300, 600);
+		contentPane.add(lblmarco);
 		lblmarco.setIcon(imgmarco2);
+
+		JLabel lblfondo = new JLabel("");
+		lblfondo.setBounds(0, 0, 1270, 991);
+		contentPane.add(lblfondo);
+		lblfondo.setIcon(imgfondo1);
 
 		lblaceptar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -141,7 +166,7 @@ public class Mispersonajes extends JFrame {
 
 			}
 		});
-		
+
 		lblvolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -168,7 +193,7 @@ public class Mispersonajes extends JFrame {
 				lblvolver.setIcon(null);
 			}
 		});
-		
+
 		lbleliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -190,15 +215,28 @@ public class Mispersonajes extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
-				//BORRAR PERSONAJE 
+
+				// BORRAR PERSONAJE
 
 			}
+			
+			
+			
 		});
 		
-		
-		
+		 cargarPersonajes(idusuario);
+
+	}
+
+	public void cargarPersonajes(int idusuario) {
+
+		ArrayList<ObjetoPersonaje> mispersonajes = new ArrayList<ObjetoPersonaje>();
+
+		mispersonajes = Consultas.damePersonajes(idusuario);
+
+		for (int i = 0; i < mispersonajes.size(); i++) {
+
+		}
 
 	}
 }

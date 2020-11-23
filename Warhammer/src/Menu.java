@@ -32,11 +32,15 @@ public class Menu extends JFrame {
 	private JPanel contentPane;
 	public static Menu frame;
 	public static String sonidoboton, musicabase;
+	public static  ObjetoUsuario user;
 
 	/**
 	 * Launch the application.
+	 * 
+	 * @param usuario
+	 * @param id
 	 */
-	public static void home() {
+	public static void home(int id, String usuario) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -49,12 +53,13 @@ public class Menu extends JFrame {
 						}
 					} catch (Exception e) {
 					}
-					frame = new Menu();
+					frame = new Menu(id, usuario);
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setResizable(false);
 					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -64,8 +69,15 @@ public class Menu extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * 
+	 * @param usuario2
+	 * @param id
 	 */
-	public Menu() {
+	public Menu(int id2, String usuario2) {
+
+		id2 = Consultas.obtieneid(usuario2);
+
+		user = Consultas.defineUsuario(id2);
 
 		sonidoboton = "sonidoboton.mp3";
 
@@ -91,34 +103,7 @@ public class Menu extends JFrame {
 
 		// ----------------------------------------------------
 
-		// COMPORTAMIENTO AL CLICK EN LOS BOTONES
-
-		btn1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				Image imgclick = new ImageIcon(".\\images\\system\\boton1encima.png").getImage();
-				ImageIcon imgb33 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn1.setIcon(imgb33);
-				Reproductor.sonido(sonidoboton);
-
-			}
-
-			public void mouseExited(MouseEvent e) {
-				Image imgnormal = new ImageIcon(".\\images\\system\\boton1.png").getImage();
-				ImageIcon imgb34 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-				btn1.setIcon(imgb34);
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				NuevoPersonaje.start();
-				frame.setVisible(false);
-
-			}
-		});
-
+		
 		JLabel btn2 = new JLabel("");
 		btn2.setHorizontalAlignment(SwingConstants.CENTER);
 		btn2.setBounds(769, 470, 332, 64);
@@ -156,7 +141,7 @@ public class Menu extends JFrame {
 		Image imgb1 = new ImageIcon(".\\images\\system\\boton1.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn1.setIcon(imgb11);
-		
+
 		Image imgb2 = new ImageIcon(".\\images\\system\\boton2.png").getImage();
 		ImageIcon imgb22 = new ImageIcon(imgb2.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
 		btn2.setIcon(imgb22);
@@ -185,6 +170,36 @@ public class Menu extends JFrame {
 		ImageIcon imgsaliendo = new ImageIcon(imgsalir.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		lblsalir.setIcon(imgsaliendo);
 
+		
+		// COMPORTAMIENTO AL CLICK EN LOS BOTONES
+
+				btn1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+
+						Image imgclick = new ImageIcon(".\\images\\system\\boton1encima.png").getImage();
+						ImageIcon imgb33 = new ImageIcon(imgclick.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+						btn1.setIcon(imgb33);
+						Reproductor.sonido(sonidoboton);
+
+					}
+
+					public void mouseExited(MouseEvent e) {
+						Image imgnormal = new ImageIcon(".\\images\\system\\boton1.png").getImage();
+						ImageIcon imgb34 = new ImageIcon(imgnormal.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
+						btn1.setIcon(imgb34);
+					}
+
+					@Override
+					public void mouseClicked(MouseEvent e) {
+
+						NuevoPersonaje.start();
+						frame.setVisible(false);
+
+					}
+				});
+
+		
 		btn2.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -205,12 +220,14 @@ public class Menu extends JFrame {
 				btn2.setIcon(imgb12);
 
 			}
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
+
 				frame.setVisible(false);
-				Mispersonajes.personajes();
+				
+				int idusuario = user.getId();
+				Mispersonajes.personajes(idusuario);
 			}
 		});
 
@@ -271,9 +288,9 @@ public class Menu extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				Ventanasalir.salir(frame);
-				
+
 				frame.disable();
-				
+
 			}
 
 			@Override
