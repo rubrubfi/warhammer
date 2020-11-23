@@ -5,8 +5,7 @@ public class ObjetoPersonaje {
 	int idpersonaje, idusuario, edad;
 	String nombre, raza, clase , genero;
 	
-	public ObjetoPersonaje(int idpersonaje, int idusuario, int edad, String nombre, String raza, String clase,
-			String genero) {
+	public ObjetoPersonaje(int idpersonaje, int idusuario, int edad, String nombre, String raza, String clase,String genero) {
 		super();
 		this.idpersonaje = idpersonaje;
 		this.idusuario = idusuario;
