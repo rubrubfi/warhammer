@@ -300,7 +300,7 @@ public class Consultas {
 		int idpersonaje, idusuario, edad;
 		String nombre, raza, clase, genero;
 		
-		String sentenciaGet = "SELECT * FROM personaje WHERE id_personaje = ? ORDER BY id_personaje DESC";
+		String sentenciaGet = "SELECT * FROM personaje WHERE idusuario = ? ORDER BY id_personaje DESC";
 		
 		PreparedStatement sentencia = null;
 		ResultSet resultado = null;
@@ -310,7 +310,6 @@ public class Consultas {
 			resultado = sentencia.executeQuery();
 
 			while (resultado.next()) {
-
 				idpersonaje = resultado.getInt(1);
 				nombre = resultado.getString(2);
 				raza = resultado.getString(3);
@@ -320,9 +319,11 @@ public class Consultas {
 				idusuario = resultado.getInt(7);
 							
 				personaje = new ObjetoPersonaje(idpersonaje, idusuario, edad, nombre, raza, clase, genero);
-
+				
 				personajes.add(personaje);
+				
 			}
+			
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();

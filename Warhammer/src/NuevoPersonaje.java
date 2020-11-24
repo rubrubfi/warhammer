@@ -43,7 +43,7 @@ public class NuevoPersonaje extends JFrame {
 	static Contenido objetoContenido = new Contenido();
 	static String[] profesiones;
 	static JComboBox comboSexo, comboRaza, comboProfesion;
-	static JLabel lbldescripcion, lblraza;
+	public static JLabel lbldescripcion, lblraza;
 	private static JLabel lblcontinuar = new JLabel("");
 
 	// Paco
@@ -52,16 +52,16 @@ public class NuevoPersonaje extends JFrame {
 	private static String raza;
 	private static String profesion;
 	private static String edad;
-	
-	
-	public  int numberOfMillisecondsInTheFuture = 1000; // Ejecutar cada 1 sec
+
+	public int numberOfMillisecondsInTheFuture = 1000; // Ejecutar cada 1 sec
 	Date timeToRun = new Date(System.currentTimeMillis() + numberOfMillisecondsInTheFuture);
-	public  Timer timer = new Timer();
-	public  Timer timer2 = new Timer();
+	public Timer timer = new Timer();
+	public Timer timer2 = new Timer();
 
 	/**
 	 * Launch the application.
-	 * @param id2 
+	 * 
+	 * @param id2
 	 */
 	public static void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -73,24 +73,22 @@ public class NuevoPersonaje extends JFrame {
 					frame.setResizable(false);
 					ImageIcon img = new ImageIcon(".\\images\\system\\icono.png");
 					frame.setIconImage(img.getImage());
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		
 
 	}
 
 	/**
 	 * Create the frame.
-	 * @param id2 
+	 * 
+	 * @param id2
 	 */
-	public NuevoPersonaje() {		
-		
-		
-		
+	public NuevoPersonaje() {
+
 		try {
 			timer.purge();
 			timer.schedule(new TimerTask() {
@@ -98,11 +96,11 @@ public class NuevoPersonaje extends JFrame {
 					validateCharacter();
 					System.out.println("Hola");
 				}
-				}, timeToRun);
-		}catch(IllegalStateException e) {
-			
-		}			
-		
+			}, timeToRun);
+		} catch (IllegalStateException e) {
+
+		}
+
 		setTitle("WARHAMMER - EL JUEGO DE ROL");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 1024);
@@ -110,21 +108,21 @@ public class NuevoPersonaje extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		// CREAMOS TXTFIELD'S PARA LOS DATOS DE NOMBRE Y EDAD
-		
-		txtnombre = new JTextField();		
+
+		txtnombre = new JTextField();
 		txtnombre.setBounds(308, 231, 244, 27);
 		contentPane.add(txtnombre);
-		txtnombre.setColumns(10);		
+		txtnombre.setColumns(10);
 
-		txtedad = new JFormattedTextField();		
+		txtedad = new JFormattedTextField();
 		txtedad.setColumns(10);
 		txtedad.setBounds(308, 303, 85, 27);
-		contentPane.add(txtedad);		
+		contentPane.add(txtedad);
 
 		// CREAMOS COMBOBOX PARA RAZA, SEXO Y CLASE
-		
+
 		comboProfesion = new JComboBox();
 		comboProfesion.setModel(new DefaultComboBoxModel(new String[] { "-" }));
 		comboProfesion.setBounds(644, 232, 241, 27);
@@ -139,23 +137,20 @@ public class NuevoPersonaje extends JFrame {
 		comboSexo.setModel(new DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
 		comboSexo.setBounds(644, 303, 109, 27);
 		contentPane.add(comboSexo);
-		
-		
+
 		// CREAMOS JLABEL DE TITULO, FONDO , CONTENIDO..
-		
+
 		JLabel lblNewLabel = new JLabel("Nombre");
 		lblNewLabel.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBounds(311, 201, 186, 27);
 		contentPane.add(lblNewLabel);
-		
 
 		JLabel label2 = new JLabel("WARHAMMER \u00AE  JUEGO DE ROL - TODOS LOS DERECHOS RESERVADOS");
 		label2.setForeground(SystemColor.windowBorder);
 		label2.setBounds(456, 951, 466, 28);
 		contentPane.add(label2);
-		
-		
+
 		JLabel lblrayamarilla = new JLabel("_____________________");
 		lblrayamarilla.setForeground(new Color(255, 204, 0));
 		lblrayamarilla.setFont(new Font("SimSun", Font.BOLD, 56));
@@ -174,7 +169,7 @@ public class NuevoPersonaje extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(123, 16, 311, 105);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblProfesionActual = new JLabel("Profesion Actual");
 		lblProfesionActual.setForeground(new Color(0, 0, 0));
 		lblProfesionActual.setFont(new Font("Maiandra GD", Font.BOLD, 18));
@@ -190,7 +185,7 @@ public class NuevoPersonaje extends JFrame {
 		JLabel lblraza = new JLabel("");
 		lblraza.setBounds(646, 270, 564, 584);
 		contentPane.add(lblraza);
-		
+
 		JLabel lblSexo = new JLabel("Sexo");
 		lblSexo.setForeground(new Color(0, 0, 0));
 		lblSexo.setFont(new Font("Maiandra GD", Font.BOLD, 18));
@@ -202,7 +197,7 @@ public class NuevoPersonaje extends JFrame {
 		lblRaza.setFont(new Font("Maiandra GD", Font.BOLD, 18));
 		lblRaza.setBounds(311, 342, 186, 27);
 		contentPane.add(lblRaza);
-		
+
 		JLabel lblvolver = new JLabel("");
 		lblvolver.setBounds(290, 790, 121, 80);
 		contentPane.add(lblvolver);
@@ -214,7 +209,7 @@ public class NuevoPersonaje extends JFrame {
 		lbldescripcion.setForeground(Color.BLACK);
 		lbldescripcion.setBounds(308, 426, 319, 456);
 		contentPane.add(lbldescripcion);
-	
+
 		JLabel lblPersonaje = new JLabel("Nuevo Personaje");
 		lblPersonaje.setForeground(new Color(255, 204, 0));
 		lblPersonaje.setFont(new Font("SimSun", Font.BOLD, 56));
@@ -233,41 +228,41 @@ public class NuevoPersonaje extends JFrame {
 		lblperga.setForeground(Color.YELLOW);
 		lblperga.setFont(new Font("Eras Demi ITC", Font.PLAIN, 18));
 		lblperga.setBounds(56, 120, 1165, 832);
-		contentPane.add(lblperga);		
+		contentPane.add(lblperga);
 
 		JLabel FONDO = new JLabel("");
 		FONDO.setBounds(0, 0, 1270, 991);
-		contentPane.add(FONDO);		
-		
+		contentPane.add(FONDO);
+
 		// ASIGNAMOS A CADA JLABEL , SU IMAGEN CORRESPONDIENTE
 
 		Image imgvolver = new ImageIcon(".\\images\\system\\botonvolverprueba.png").getImage();
 		ImageIcon imgv = new ImageIcon(imgvolver.getScaledInstance(105, 65, Image.SCALE_SMOOTH));
-		lblvolver.setIcon(imgv);		
+		lblvolver.setIcon(imgv);
 
 		Image prueba = new ImageIcon(".\\images\\system\\titulo.png").getImage();
 		ImageIcon probando = new ImageIcon(prueba.getScaledInstance(300, 90, Image.SCALE_SMOOTH));
 		lblNewLabel_1.setIcon(probando);
-		
+
 		Image imgb1 = new ImageIcon(".\\images\\system\\botoncontinuar.png").getImage();
 		ImageIcon imgb11 = new ImageIcon(imgb1.getScaledInstance(215, 55, Image.SCALE_SMOOTH));
-		lblcontinuar.setIcon(imgb11);	
-		
+		lblcontinuar.setIcon(imgb11);
+
 		Image imgh = new ImageIcon(".\\images\\system\\pergahorizontal.png").getImage();
 		ImageIcon imgperga = new ImageIcon(imgh.getScaledInstance(1165, 832, Image.SCALE_SMOOTH));
 		lblperga.setIcon(imgperga);
-		
+
 		Image imgfondo = new ImageIcon(".\\images\\system\\fondo2.jpg").getImage();
 		ImageIcon imgfondo1 = new ImageIcon(imgfondo.getScaledInstance(1280, 990, Image.SCALE_SMOOTH));
 		FONDO.setIcon(imgfondo1);
-		
 
 		// ASIGNAMOS POR DEFECTO LA DESCRIPCION Y LA IMAGEN DE LA RAZA DE LOS HUMANOS (
 		// YA QUE VA A SER LA PRIMERA DE LA LISTA )
-		
-		// ESTO DEBERIA REALIZARSE MEDIANTE UNA COMPROBACIÓN AUTOMÁTICA MEDIANTE UN MÉTODO
+
+		// ESTO DEBERIA REALIZARSE MEDIANTE UNA COMPROBACIÓN AUTOMÁTICA MEDIANTE UN
+		// MÉTODO
 		// ---------------------------------------------------------------------------------
-		
+
 		Image img = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
 		ImageIcon imghumano = new ImageIcon(img.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
 		lblraza.setIcon(imghumano);
@@ -279,23 +274,21 @@ public class NuevoPersonaje extends JFrame {
 		profesiones = Contenido.profesiones(comboRaza.getSelectedItem().toString());
 		comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
 
-		
-		
-		// DEFINIMOS ACCIONES EN LOS TEXTFIELD. 
+		// DEFINIMOS ACCIONES EN LOS TEXTFIELD.
 		// LIMITAMOS EL TEXTFIELD DE NOMBRE A 30 CARACTERES
 		// LIMITAMOS EL TEXTFIELD DE EDAD A 4 CARACTERES Y NÚMEROS EXCLUSIVAMENTE
-		//SI ESTAN VACIOS, NO PODEMOS CONTINUAR
-		
+		// SI ESTAN VACIOS, NO PODEMOS CONTINUAR
+
 		txtnombre.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 
-				if (txtnombre.getText().length() >= 30) 
+				if (txtnombre.getText().length() >= 30)
 					e.consume();
 
 			}
 		});
-		
+
 		txtedad.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -311,9 +304,7 @@ public class NuevoPersonaje extends JFrame {
 
 			}
 		});
-		
-		
-		
+
 		lblcontinuar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -341,30 +332,29 @@ public class NuevoPersonaje extends JFrame {
 				 * raza, profesion, edad); System.out.println("Todo rellenado");//Borrar esto..
 				 * }
 				 */
-				
+
 				String nombre, raza, clase, genero;
-				
+
 				int edad, id;
-				
+
 				nombre = txtnombre.getText();
 				raza = comboRaza.getSelectedItem().toString();
 				clase = comboProfesion.getSelectedItem().toString();
 				genero = comboSexo.getSelectedItem().toString();
 				edad = Integer.parseInt(txtedad.getText());
 				id = Menu.user.getId();
-				
-				Consultas.nuevoPersonaje(id, nombre, raza, clase, genero, edad);				
-				
+
+				Consultas.nuevoPersonaje(id, nombre, raza, clase, genero, edad);
+
 				timer.cancel();
 				timer2.cancel();
-				
+
 				Mispersonajes.personajes(id);
 				frame.setVisible(false);
 
 			}
 		});
-		
-		
+
 		lblvolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -393,13 +383,14 @@ public class NuevoPersonaje extends JFrame {
 				lblvolver.setIcon(imgv);
 			}
 		});
-		
+
 		// DEFINIMOS QUE AL CAMBIAR EL ITEM SELECCIONADO DEL COMBOBOX, TAMBIÉN CAMBIEN
 		// LA IMAGEN Y LA DESCRIPCIÓN
-		// CAMBIAMOS FOTOS SEGÚN RAZA Y SEXO	
-		
+		// CAMBIAMOS FOTOS SEGÚN RAZA Y SEXO
+
 		// ------------------------------------------------------------------------------------
-		// ESTE ACTION LISTENER (COMBOSEXO) Y EL DE MÁS ABAJO (COMBORAZA) TIENEN EL MISMO CÓDIGO
+		// ESTE ACTION LISTENER (COMBOSEXO) Y EL DE MÁS ABAJO (COMBORAZA) TIENEN EL
+		// MISMO CÓDIGO
 		// HAY QUE CREAR UN MÉTODO EL CUAL RECIBA PARÁMETROS DE RAZA Y SEXO
 		// Y ÉSTE TE DEVUELVA LA IMAGEN CORRESPONDIENTE
 		// -------------------------------------------------------------------------------------
@@ -413,141 +404,7 @@ public class NuevoPersonaje extends JFrame {
 
 				int indiceSexo = comboSexo.getSelectedIndex();
 
-				switch (indiceRaza) {
-				case 0:
-
-					objetoContenido.setRaza("Humano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					} else {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					}
-
-					profesiones = Contenido.profesiones("Humano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-					break;
-
-				case 1:
-
-					objetoContenido.setRaza("Elfo/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img1 = new ImageIcon(".\\images\\razas\\elfo-rogue.png").getImage();
-						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(650, 800, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgelfo);
-
-					} else {
-
-						Image img1 = new ImageIcon(".\\images\\razas\\elfa-rogue.png").getImage();
-						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(540, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgelfo);
-
-					}
-
-					profesiones = Contenido.profesiones("Elfo/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				case 2:
-
-					objetoContenido.setRaza("Enano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image imgh = new ImageIcon(".\\images\\razas\\enano.png").getImage();
-						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgenanos);
-
-					} else {
-
-						Image imgh = new ImageIcon(".\\images\\razas\\enana.png").getImage();
-						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(540, 550, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgenanos);
-
-					}
-
-					profesiones = Contenido.profesiones("Enano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				case 3:
-					objetoContenido.setRaza("Halfling");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img3 = new ImageIcon(".\\images\\razas\\halflingduo.png").getImage();
-						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghalfling);
-
-					} else {
-
-						Image img3 = new ImageIcon(".\\images\\razas\\halflingchica.png").getImage();
-						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(570, 620, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghalfling);
-
-					}
-
-					profesiones = Contenido.profesiones("Halfling");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				default:
-
-					objetoContenido.setRaza("Humano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					} else {
-
-						Image img = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
-						ImageIcon imghumano = new ImageIcon(img.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghumano);
-
-					}
-
-					profesiones = Contenido.profesiones("Humano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-				}
-
+				dameImagen(indiceRaza, indiceSexo, objetoContenido, lbldescripcion, lblraza);
 			}
 
 		});
@@ -559,153 +416,18 @@ public class NuevoPersonaje extends JFrame {
 
 				int indiceSexo = comboSexo.getSelectedIndex();
 
-				switch (indiceRaza) {
-
-				case 0:
-
-					objetoContenido.setRaza("Humano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					} else {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					}
-
-					profesiones = Contenido.profesiones("Humano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-					break;
-
-				case 1:
-
-					objetoContenido.setRaza("Elfo/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img1 = new ImageIcon(".\\images\\razas\\elfo-rogue.png").getImage();
-						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(650, 800, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgelfo);
-
-					} else {
-
-						Image img1 = new ImageIcon(".\\images\\razas\\elfa-rogue.png").getImage();
-						ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(540, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgelfo);
-
-					}
-
-					profesiones = Contenido.profesiones("Elfo/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				case 2:
-
-					objetoContenido.setRaza("Enano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image imgh = new ImageIcon(".\\images\\razas\\enano.png").getImage();
-						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgenanos);
-
-					} else {
-
-						Image imgh = new ImageIcon(".\\images\\razas\\enana.png").getImage();
-						ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(540, 550, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imgenanos);
-
-					}
-
-					profesiones = Contenido.profesiones("Enano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				case 3:
-					objetoContenido.setRaza("Halfling");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img3 = new ImageIcon(".\\images\\razas\\halflingduo.png").getImage();
-						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghalfling);
-
-					} else {
-
-						Image img3 = new ImageIcon(".\\images\\razas\\halflingchica.png").getImage();
-						ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(570, 620, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghalfling);
-
-					}
-
-					profesiones = Contenido.profesiones("Halfling");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-
-				default:
-
-					objetoContenido.setRaza("Humano/a");
-
-					descripcion = objetoContenido.getRaza();
-
-					lbldescripcion.setText(descripcion);
-
-					if (indiceSexo == 0) {
-
-						Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
-						ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghuman);
-
-					} else {
-
-						Image img = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
-						ImageIcon imghumano = new ImageIcon(img.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
-						lblraza.setIcon(imghumano);
-
-					}
-
-					profesiones = Contenido.profesiones("Humano/a");
-					comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
-
-					break;
-				}
+				dameImagen(indiceRaza, indiceSexo, objetoContenido, lbldescripcion, lblraza);
 
 			}
 
 		});
-		
 
 	}
 
 	// MÉTODO QUE VALIDA QUE LOS TEXTFIELD DE NOMBRE Y EDAD ESTÉN RELLENADOS
 	// TRUE = MOSTRAR BOTÓN CONTINUAR
 	// FALSE = OCULTAR BOTÓN
-	
+
 	private void validateCharacter() {
 		int steps = 0;
 
@@ -742,28 +464,160 @@ public class NuevoPersonaje extends JFrame {
 		} else {
 			lblcontinuar.setVisible(false);
 		}
-		
-		
+
 		// Controla que cada segundo valida los datos del personaje al crear uno nuevo
 		try {
 			timer2.purge();
 			timer2.schedule(new TimerTask() {
 				public void run() {
 					validateCharacter();
-					System.out.println("Adios");
+
 				}
-				}, 1000);
-		}catch(IllegalStateException e) {
+			}, 1000);
+		} catch (IllegalStateException e) {
 			System.out.println("Error en el metodo");
 		}
-	    
 
 	}
-	
-	
-	
 
-	
-	
+	public void dameImagen(int indiceRaza, int indiceSexo, Contenido objetoContenido2, JLabel lbldescripcion2,
+			JLabel lblraza2) {
+
+		switch (indiceRaza) {
+		case 0:
+
+			objetoContenido2.setRaza("Humano/a");
+
+			descripcion = objetoContenido2.getRaza();
+
+			lbldescripcion2.setText(descripcion);
+
+			if (indiceSexo == 0) {
+
+				Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
+				ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghuman);
+
+			} else {
+
+				Image img0 = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
+				ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghuman);
+
+			}
+
+			profesiones = Contenido.profesiones("Humano/a");
+			comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+			break;
+
+		case 1:
+
+			objetoContenido2.setRaza("Elfo/a");
+
+			descripcion = objetoContenido2.getRaza();
+
+			lbldescripcion2.setText(descripcion);
+
+			if (indiceSexo == 0) {
+
+				Image img1 = new ImageIcon(".\\images\\razas\\elfo-rogue.png").getImage();
+				ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(650, 800, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imgelfo);
+
+			} else {
+
+				Image img1 = new ImageIcon(".\\images\\razas\\elfa-rogue.png").getImage();
+				ImageIcon imgelfo = new ImageIcon(img1.getScaledInstance(540, 660, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imgelfo);
+
+			}
+
+			profesiones = Contenido.profesiones("Elfo/a");
+			comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+
+			break;
+
+		case 2:
+
+			objetoContenido2.setRaza("Enano/a");
+
+			descripcion = objetoContenido2.getRaza();
+
+			lbldescripcion2.setText(descripcion);
+
+			if (indiceSexo == 0) {
+
+				Image imgh = new ImageIcon(".\\images\\razas\\enano.png").getImage();
+				ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(400, 450, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imgenanos);
+
+			} else {
+
+				Image imgh = new ImageIcon(".\\images\\razas\\enana.png").getImage();
+				ImageIcon imgenanos = new ImageIcon(imgh.getScaledInstance(540, 550, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imgenanos);
+
+			}
+
+			profesiones = Contenido.profesiones("Enano/a");
+			comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+
+			break;
+
+		case 3:
+			objetoContenido2.setRaza("Halfling");
+
+			descripcion = objetoContenido2.getRaza();
+
+			lbldescripcion2.setText(descripcion);
+
+			if (indiceSexo == 0) {
+
+				Image img3 = new ImageIcon(".\\images\\razas\\halflingduo.png").getImage();
+				ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(470, 500, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghalfling);
+
+			} else {
+
+				Image img3 = new ImageIcon(".\\images\\razas\\halflingchica.png").getImage();
+				ImageIcon imghalfling = new ImageIcon(img3.getScaledInstance(570, 620, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghalfling);
+
+			}
+
+			profesiones = Contenido.profesiones("Halfling");
+			comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+
+			break;
+
+		default:
+
+			objetoContenido2.setRaza("Humano/a");
+
+			descripcion = objetoContenido2.getRaza();
+
+			lbldescripcion2.setText(descripcion);
+
+			if (indiceSexo == 0) {
+
+				Image img0 = new ImageIcon(".\\images\\razas\\humano-hechicero.png").getImage();
+				ImageIcon imghuman = new ImageIcon(img0.getScaledInstance(640, 680, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghuman);
+
+			} else {
+
+				Image img = new ImageIcon(".\\images\\razas\\humano-rogue.png").getImage();
+				ImageIcon imghumano = new ImageIcon(img.getScaledInstance(590, 660, Image.SCALE_SMOOTH));
+				lblraza2.setIcon(imghumano);
+
+			}
+
+			profesiones = Contenido.profesiones("Humano/a");
+			comboProfesion.setModel(new DefaultComboBoxModel(profesiones));
+
+			break;
+		}
+
+	}
 
 }

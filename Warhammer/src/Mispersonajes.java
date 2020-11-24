@@ -15,13 +15,18 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class Mispersonajes extends JFrame {
 
 	private JPanel contentPane;
 	public static Mispersonajes frame;
 	public String sonidoboton;
+	public JLabel personaje0, personaje1, personaje2, personaje3;
+	public static int id = 0;
 
 	/**
 	 * Launch the application.
@@ -62,6 +67,8 @@ public class Mispersonajes extends JFrame {
 	 * @param idusuario
 	 */
 	public Mispersonajes(int idusuario) {
+
+		id = idusuario;
 
 		sonidoboton = "sonidoboton.mp3";
 
@@ -112,25 +119,49 @@ public class Mispersonajes extends JFrame {
 		Image imgmarco = new ImageIcon(".\\images\\system\\marcoprueba.png").getImage();
 		ImageIcon imgmarco2 = new ImageIcon(imgmarco.getScaledInstance(300, 600, Image.SCALE_SMOOTH));
 
-		JPanel panel = new JPanel();
-		panel.setBounds(142, 242, 208, 105);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		personaje0 = new JLabel("");
+		personaje0.setForeground(new Color(0, 0, 0));
+		personaje0.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 17));
+		personaje0.setHorizontalAlignment(SwingConstants.LEFT);
+		personaje0.setBounds(155, 241, 186, 80);
+		contentPane.add(personaje0);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBounds(142, 359, 208, 105);
-		contentPane.add(panel_1);
+		personaje1 = new JLabel("");
+		personaje1.setForeground(new Color(0, 0, 0));
+		personaje1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 17));
+		personaje1.setHorizontalAlignment(SwingConstants.LEFT);
+		personaje1.setBounds(155, 348, 186, 80);
+		contentPane.add(personaje1);
 
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBounds(142, 476, 208, 105);
-		contentPane.add(panel_2);
+		personaje2 = new JLabel("");
+		personaje2.setForeground(new Color(0, 0, 0));
+		personaje2.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 17));
+		personaje2.setHorizontalAlignment(SwingConstants.LEFT);
+		personaje2.setBounds(155, 472, 186, 80);
+		contentPane.add(personaje2);
 
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBounds(142, 593, 208, 105);
-		contentPane.add(panel_3);
+		personaje3 = new JLabel("");
+		personaje3.setForeground(new Color(0, 0, 0));
+		personaje3.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 17));
+		personaje3.setHorizontalAlignment(SwingConstants.LEFT);
+		personaje3.setBounds(155, 594, 186, 80);
+		contentPane.add(personaje3);
+
+		JLabel lblNewLabel = new JLabel("_____________________________");
+		lblNewLabel.setBounds(145, 310, 233, 28);
+		contentPane.add(lblNewLabel);
+
+		JLabel label_1 = new JLabel("_____________________________");
+		label_1.setBounds(145, 417, 233, 28);
+		contentPane.add(label_1);
+
+		JLabel label_2 = new JLabel("_____________________________");
+		label_2.setBounds(145, 541, 233, 28);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("_____________________________");
+		label_3.setBounds(145, 663, 233, 28);
+		contentPane.add(label_3);
 
 		JLabel lblmarco = new JLabel("");
 		lblmarco.setBounds(90, 176, 300, 600);
@@ -219,24 +250,66 @@ public class Mispersonajes extends JFrame {
 				// BORRAR PERSONAJE
 
 			}
-			
-			
-			
+
 		});
-		
-		 cargarPersonajes(idusuario);
+
+		Thread t = new Thread(new MiHilo());
+		t.start();
 
 	}
 
 	public void cargarPersonajes(int idusuario) {
 
+		String nombre, id, clase, raza;
+
 		ArrayList<ObjetoPersonaje> mispersonajes = new ArrayList<ObjetoPersonaje>();
 
 		mispersonajes = Consultas.damePersonajes(idusuario);
-
+		
 		for (int i = 0; i < mispersonajes.size(); i++) {
 
+			nombre = mispersonajes.get(i).getNombre();
+
+			clase = mispersonajes.get(i).getClase();
+
+			raza = mispersonajes.get(i).getRaza();
+
+			id = String.valueOf(mispersonajes.get(i).getIdpersonaje());
+
+			switch (i) {
+			
+			case 0 :
+				personaje0.setText("<html>" + nombre + "<br>" + clase + "<br>" + raza + "<br> Nivel: 17" + "</html>");
+				break;
+				
+			case 1:
+				personaje1.setText("<html>" + nombre + "<br>" + clase + "<br>" + raza + "<br> Nivel: 26" + "</html>");
+				break;
+			case 2:
+				personaje2.setText("<html>" + nombre + "<br>" + clase + "<br>" + raza + "</html>");
+				break;
+			case 3:
+				personaje3.setText("<html>" + nombre + "<br>" + clase + "<br>" + raza + "</html>");
+				break;
+			}
 		}
 
+	}
+
+	public class MiHilo extends Thread {
+
+		public void run()
+
+		{
+
+			while (true) {
+				try {
+					Thread.sleep(200);
+					cargarPersonajes(id);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

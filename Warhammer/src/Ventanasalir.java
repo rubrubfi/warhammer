@@ -76,7 +76,7 @@ public class Ventanasalir extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("<html> <center>\u00A1 ATENCI\u00D3N \u00A1 </center><br><center>Se va a cerrar el juego. \u00BFSeguro que quieres salir ?</center></html>");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Footlight MT Light", Font.PLAIN, 23));
+		lblNewLabel.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 23));
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBounds(76, 52, 257, 138);
 		contentPane.add(lblNewLabel);
